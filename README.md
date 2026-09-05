@@ -130,4 +130,12 @@ See [build and contribution instructions](CONTRIBUTING.md), [architecture](docs/
 
 **Current proof boundary:** scalar arithmetic in a fully consumed restricted grammar. Whole pipelines, arbitrary tensor kernels, scientific meaning, all-input floating-point behavior, and the checker itself are not proved. Unknown solver outcomes and unsupported constructs cannot become strict passes. General Python can still be inspected at the static/trace layer. [Trust model →](docs/trust.md)
 
-MIT licensed. Please cite the accompanying [technical report](CITATION.cff). Inspired by [Prove2Me](https://prove2.me/about), [I Heart LA / HeartDown](https://iheartla.github.io/), and computation-linked visual inspection. EqTrace currently produces Z3 evidence, not Lean proof certificates.
+MIT licensed. Please cite the [software](CITATION.cff) when using EqTrace in research; the accompanying report documents the method. Inspired by [Prove2Me](https://prove2.me/about), [I Heart LA / HeartDown](https://iheartla.github.io/), and computation-linked visual inspection. EqTrace currently produces Z3 evidence, not Lean proof certificates.
+
+## Citation and contact
+
+EqTrace is a personal side project by **Shiqi Wang**. Contact: [qtec@outlook.com](mailto:qtec@outlook.com).
+
+> Wang, S. (2026). *EqTrace: Inspectable Contracts between Papers, Code, and Execution* (Version 0.1.0) [Computer software]. GitHub. https://github.com/Mappedinfo/eqtrace/releases/tag/v0.1.0
+
+Use GitHub's **Cite this repository** panel for APA and BibTeX, or download [CITATION.bib](CITATION.bib). A DOI has **not yet been registered**. [Citation and Zenodo archiving instructions](docs/citing.md) explain the next step and the difference between version and concept DOIs.

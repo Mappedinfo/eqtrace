@@ -2,7 +2,7 @@
 name = "eqtrace"
 version = "0.1.0"
 description = "Inspectable contracts between LaTeX, code, datasets, and execution"
-authors = [{name = "Shiqi Wang"}]
+authors = [{name = "Shiqi Wang", email = "qtec@outlook.com"}]
 
 requires-python = ">=3.11"
 dependencies = []

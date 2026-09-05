@@ -19,3 +19,11 @@ and sampled CPython execution as separate result fields.
 - Core package has no runtime dependencies. Z3 is an explicit optional extra.
 - Keep public examples synthetic; no private projects, paths, notes, or credentials.
 - Run `make test` and `make demo` for core changes; build the paper after prose edits.
+
+## Public authorship
+
+EqTrace is Shiqi Wang's personal side project. Public author information is
+limited to Shiqi Wang and qtec@outlook.com. Omit institutional affiliations,
+location, ORCID, and other personal identifiers unless the user explicitly
+requests them for this project. Keep CITATION.cff as the canonical software
+citation metadata. Never add a DOI until the assigned record is verified.

@@ -1,0 +1,36 @@
+% latex-fonts.tex — Academic Templates font baseline (canonical)
+% Compile with XeLaTeX or LuaLaTeX (fontspec required).
+% Requires the fonts from fonts/setup-fonts.sh (or the Google Fonts fallback).
+%
+% Family-name strategy: prefer the full CJK collection names
+% ("Noto * CJK SC", Homebrew casks); fall back to the Google Fonts SC names
+% ("Noto * SC"), which are the same designs packaged per-language.
+
+\usepackage{fontspec}
+
+% --- Latin ---
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+
+% --- Math (optional; comment out if unicode-math conflicts with your class) ---
+% \usepackage{unicode-math}
+% \setmathfont{Libertinus Math}
+
+% --- CJK (with Google Fonts fallback names) ---
+\usepackage{xeCJK}
+\IfFontExistsTF{Noto Serif CJK SC}
+  {\setCJKmainfont{Noto Serif CJK SC}}
+  {\setCJKmainfont{Noto Serif SC}}
+\IfFontExistsTF{Noto Sans CJK SC}
+  {\setCJKsansfont{Noto Sans CJK SC}}
+  {\setCJKsansfont{Noto Sans SC}}
+\IfFontExistsTF{Noto Sans Mono CJK SC}
+  {\setCJKmonofont{Noto Sans Mono CJK SC}}
+  {\IfFontExistsTF{Noto Sans Mono}
+    {\setCJKmonofont{Noto Sans Mono}}
+    {\setCJKmonofont{Libertinus Mono}}}
+
+% --- Figure/table caption default: sans (matches code-drawn figures) ---
+\usepackage{caption}
+\captionsetup{font={small,sf},labelfont=bf}

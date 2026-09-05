@@ -1,0 +1,11 @@
+# matplotlib-style.mplstyle — Academic Templates figure font baseline.
+# Sans-serif figures match slides/reports; Libertinus Sans covers Latin,
+# Noto Sans CJK SC covers Chinese glyphs, so mixed-language labels just work.
+font.family      : sans-serif
+font.sans-serif  : Libertinus Sans, Noto Sans CJK SC, Noto Sans SC, DejaVu Sans, sans-serif
+axes.unicode_minus : False
+figure.dpi       : 120
+savefig.dpi      : 300
+savefig.bbox     : tight
+axes.grid        : True
+grid.alpha       : 0.3

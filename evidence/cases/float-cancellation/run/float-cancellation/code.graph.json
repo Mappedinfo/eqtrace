@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "root": "n3",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 1,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "const",
+      "value": "10000000000000000",
+      "inputs": [],
+      "fingerprint": "fa02e0c17fe2038e366d6dd417c1459481f228bdcd08bf13d47c3d612ba3d46c",
+      "expression": "10000000000000000",
+      "latex": "10000000000000000",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 15
+        },
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 34
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n1"
+      ],
+      "fingerprint": "28b607cff418619181299a403ae98bbec648fa0555fff7672be97a6af04f8932",
+      "expression": "(x + 10000000000000000)",
+      "latex": "\\left(x + 10000000000000000\\right)",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 13
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "sub",
+      "value": "",
+      "inputs": [
+        "n2",
+        "n1"
+      ],
+      "fingerprint": "fe8ca256e04dab993342c915ebd9d38b7ae65d841c30903b94f622bae6c27ac3",
+      "expression": "((x + 10000000000000000) - 10000000000000000)",
+      "latex": "\\left(\\left(x + 10000000000000000\\right) - 10000000000000000\\right)",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n2",
+      "slot": 0
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "slot": 1
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "slot": 0
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "slot": 1
+    }
+  ]
+}

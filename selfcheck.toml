@@ -1,0 +1,32 @@
+schema_version = 1
+title = "EqTrace checks the arithmetic it uses"
+paper_sources = ["paper/sections/03-method.tex"]
+samples = 64
+seed = 1729
+
+[[contracts]]
+id = "self-squared-error"
+label = "eq:self-square"
+implementation = "code/src/eqtrace/kernels.py"
+function = "squared_error"
+inputs = ["a", "b"]
+domains = {a = [-10,10], b = [-10,10]}
+policy = "algebraic"
+
+[[contracts]]
+id = "self-normalized-error"
+label = "eq:self-normalized"
+implementation = "code/src/eqtrace/kernels.py"
+function = "normalized_squared_error"
+inputs = ["a", "b"]
+domains = {a = [-10,10], b = [-10,10]}
+policy = "algebraic"
+
+[[contracts]]
+id = "self-algorithm"
+label = "alg:self-normalized"
+implementation = "code/src/eqtrace/kernels.py"
+function = "normalized_squared_error"
+inputs = ["a", "b"]
+domains = {a = [-10,10], b = [-10,10]}
+policy = "ordered"

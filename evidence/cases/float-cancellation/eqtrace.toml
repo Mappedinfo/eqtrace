@@ -1,0 +1,12 @@
+schema_version = 1
+title = "float-cancellation"
+paper_sources = ["paper.tex"]
+[[contracts]]
+implementation = "implementation.py"
+id = "float-cancellation"
+label = "eq:float-cancellation"
+function = "f"
+inputs = ["x"]
+domains = { "x" = [-1, 1] }
+nonzero = []
+policy = "algebraic"

@@ -1,0 +1,1264 @@
+{
+  "schema_version": 1,
+  "tool": "eqtrace",
+  "version": "0.1.0",
+  "title": "explicit-epsilon",
+  "created_at": "2026-09-05T02:50:36.250396+00:00",
+  "status": "PASS",
+  "proof_required": true,
+  "manifest": "eqtrace.toml",
+  "sources": {
+    "eqtrace.toml": "ee0918856cbbc70124acd89666a93be2ff25d3481b3351b0348eb11cff5af535",
+    "paper.tex": "da611a934ae09757d164819eb08edb95d260c6cc0b5ea092f8e0a33fd7a46579",
+    "implementation.py": "689a0de8792564821875e23fcf88b59625abe4a690d67bff6f2582f285e404e0"
+  },
+  "checker": {
+    "__init__.py": "03328ec28db34e363504a689ca19f9c342d7e4e435b25fd61d5d66673e303c08",
+    "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "architecture.py": "9c6d25e086df0035b39d7bf9151c634ed15b99fa43bf32183260a2b86ec24a4f",
+    "architecture_render.py": "6f2a3968ce42c7f4ab14546939fe980efb59966c976a86f56d591a164489a247",
+    "cli.py": "5bcea39a65933d5d285658ac0a410fea9f13b45f537476d09de6f0b9da40f0c8",
+    "codegraph.py": "02f63a15cd0594482644f51146b374c0bc501c4b96f9967b3cb598080df7ab7f",
+    "datasets.py": "7777c2e00901ae5152393b6d8b0fd866b665ea4a0bad2ae277560d9e95ca9bab",
+    "instrument.py": "8cb0821fb05fb5e5783a602f7c2f16e091405e5ed4aba8a7d769329a44f34963",
+    "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
+    "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
+    "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
+    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
+    "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
+    "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
+    "server.py": "42a7771cdd960389ac42624669d2a1665860d33419b8f84a67fb6f6a850323f7",
+    "verify.py": "c398d572cba29c5721c42cdc7cc39e5d96b14ac4118333d8b8654d99abba18d8",
+    "web/app.js": "a50fa0e07e36106348df106b53c613cfd9089c17334be9ce61df8986b81d19fc",
+    "web/architecture.css": "6abaebc13b3dcdad4bb233307a903dbacc4befba09f82acd6c153ee8005e6b3a",
+    "web/architecture.html": "5c34117a0f1c0246d68587396a77e92bca2bc6ad0f4e368a8fda778e2296615c",
+    "web/architecture.js": "b4f74c867c86454e434dc2afaefa6d3bca222aabcbd82670013125e77f064951",
+    "web/index.html": "da78aec7c1bd6118fba79338516d1a3c56e5b3d1e28b5386596fa448eb7efeb6",
+    "web/style.css": "fccbce0103460b5616bb13c5fb28bcccc8f1f1aac8e5ca716e925f097257ec99"
+  },
+  "environment": {
+    "python": "3.13.12",
+    "implementation": "CPython",
+    "platform": "Darwin"
+  },
+  "scope": "Only manifest-selected equation files and validated target functions; no transitive imports or external callers",
+  "errors": [],
+  "contracts": [
+    {
+      "id": "explicit-epsilon",
+      "label": "eq:explicit-epsilon",
+      "description": "",
+      "status": "PASS",
+      "policy": "algebraic",
+      "inputs": [
+        "x",
+        "mu",
+        "sigma",
+        "epsilon"
+      ],
+      "domains": {
+        "x": [
+          -2,
+          2
+        ],
+        "mu": [
+          -1,
+          1
+        ],
+        "sigma": [
+          1,
+          3
+        ],
+        "epsilon": [
+          0.01,
+          0.1
+        ]
+      },
+      "nonzero": [],
+      "implementation": "implementation.py",
+      "function": "f",
+      "proof": {
+        "status": "PROVED_REAL",
+        "reason": "No unequal result exists under the declared real semantics (Z3 UNSAT)",
+        "scope": "Real denotations over declared intervals; not IEEE floating-point equivalence or a Lean certificate",
+        "backend": "z3",
+        "version": "4.16.0",
+        "timeout_ms_per_query": 3000,
+        "queries": [
+          {
+            "name": "nonempty_domain",
+            "smt2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Real)\n(declare-fun mu () Real)\n(declare-fun sigma () Real)\n(declare-fun epsilon () Real)\n(assert\n (<= (- 2.0) x))\n(assert\n (>= 2.0 x))\n(assert\n (<= (- 1.0) mu))\n(assert\n (>= 1.0 mu))\n(assert\n (<= 1.0 sigma))\n(assert\n (>= 3.0 sigma))\n(assert\n (<= (/ 1.0 100.0) epsilon))\n(assert\n (>= (/ 1.0 10.0) epsilon))\n(check-sat)\n",
+            "result": "sat",
+            "model": {
+              "x": "0",
+              "mu": "0",
+              "sigma": "1",
+              "epsilon": "1/100"
+            }
+          },
+          {
+            "name": "totality",
+            "smt2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Real)\n(declare-fun mu () Real)\n(declare-fun sigma () Real)\n(declare-fun epsilon () Real)\n(assert\n (<= (- 2.0) x))\n(assert\n (>= 2.0 x))\n(assert\n (<= (- 1.0) mu))\n(assert\n (>= 1.0 mu))\n(assert\n (<= 1.0 sigma))\n(assert\n (>= 3.0 sigma))\n(assert\n (<= (/ 1.0 100.0) epsilon))\n(assert\n (>= (/ 1.0 10.0) epsilon))\n(assert\n (let ((?x12 (+ sigma epsilon)))\n(let (($x33 (and (distinct ?x12 0.0) true)))\n(not (and $x33 $x33)))))\n(check-sat)\n",
+            "result": "unsat"
+          },
+          {
+            "name": "equivalence",
+            "smt2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Real)\n(declare-fun mu () Real)\n(declare-fun sigma () Real)\n(declare-fun epsilon () Real)\n(assert\n (<= (- 2.0) x))\n(assert\n (>= 2.0 x))\n(assert\n (<= (- 1.0) mu))\n(assert\n (>= 1.0 mu))\n(assert\n (<= 1.0 sigma))\n(assert\n (>= 3.0 sigma))\n(assert\n (<= (/ 1.0 100.0) epsilon))\n(assert\n (>= (/ 1.0 10.0) epsilon))\n(assert\n (let ((?x12 (+ sigma epsilon)))\n(let ((?x24 (/ (- x mu) ?x12)))\n(and (distinct ?x24 ?x24) true))))\n(check-sat)\n",
+            "result": "unsat"
+          }
+        ],
+        "witness": null,
+        "duration_ms": 2.67
+      },
+      "execution": {
+        "status": "PASS",
+        "requested": 64,
+        "executed": 64,
+        "passed": 64,
+        "seed": 1729,
+        "tolerance": 1e-10,
+        "distinct_inputs": 64,
+        "reference_semantics": "exact rational arithmetic on binary input values",
+        "execution_scope": "validated target function extracted from source; module and external callers are not executed",
+        "records": [
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 0.0,
+              "sigma": 2.0,
+              "epsilon": 0.055
+            },
+            "expected": 0.0,
+            "actual": 0.0,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -2.0,
+              "mu": 0.0,
+              "sigma": 2.0,
+              "epsilon": 0.055
+            },
+            "expected": -0.9732360097323601,
+            "actual": -0.97323600973236,
+            "normalized_squared_error": 3.140987029159122e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 2.0,
+              "mu": 0.0,
+              "sigma": 2.0,
+              "epsilon": 0.055
+            },
+            "expected": 0.9732360097323601,
+            "actual": 0.97323600973236,
+            "normalized_squared_error": 3.140987029159122e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": -1.0,
+              "sigma": 2.0,
+              "epsilon": 0.055
+            },
+            "expected": 0.48661800486618007,
+            "actual": 0.48661800486618,
+            "normalized_squared_error": 1.2362766244394382e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 1.0,
+              "sigma": 2.0,
+              "epsilon": 0.055
+            },
+            "expected": -0.48661800486618007,
+            "actual": -0.48661800486618,
+            "normalized_squared_error": 1.2362766244394382e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 0.0,
+              "sigma": 1.0,
+              "epsilon": 0.055
+            },
+            "expected": 0.0,
+            "actual": 0.0,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 0.0,
+              "sigma": 3.0,
+              "epsilon": 0.055
+            },
+            "expected": 0.0,
+            "actual": 0.0,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 0.0,
+              "sigma": 2.0,
+              "epsilon": 0.01
+            },
+            "expected": 0.0,
+            "actual": 0.0,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.0,
+              "mu": 0.0,
+              "sigma": 2.0,
+              "epsilon": 0.09999999999999999
+            },
+            "expected": 0.0,
+            "actual": 0.0,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6149730613181639,
+              "mu": -0.9100552703665756,
+              "sigma": 2.002607737348912,
+              "epsilon": 0.025269170377137228
+            },
+            "expected": 0.7520320024723903,
+            "actual": 0.7520320024723904,
+            "normalized_squared_error": 5.666153500750631e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.767298379450975,
+              "mu": 0.7360116791907403,
+              "sigma": 2.039808551956069,
+              "epsilon": 0.0886444867507915
+            },
+            "expected": -1.176117120330077,
+            "actual": -1.176117120330077,
+            "normalized_squared_error": 1.5348845618863715e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.8551180512505119,
+              "mu": 0.8728429867280274,
+              "sigma": 2.806596592898166,
+              "epsilon": 0.08647905542498972
+            },
+            "expected": -0.5972747511735741,
+            "actual": -0.5972747511735741,
+            "normalized_squared_error": 7.291362635370106e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.19448419723971666,
+              "mu": -0.9884991648425945,
+              "sigma": 1.914034474694868,
+              "epsilon": 0.04565125147577109
+            },
+            "expected": 0.6036597329276577,
+            "actual": 0.6036597329276578,
+            "normalized_squared_error": 3.33214169739105e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.9583518118827175,
+              "mu": 0.43526428912577075,
+              "sigma": 1.8211963285242783,
+              "epsilon": 0.04169712828459051
+            },
+            "expected": 0.280793043126038,
+            "actual": 0.280793043126038,
+            "normalized_squared_error": 4.827224815499381e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.107975866824055,
+              "mu": 0.6396345157957715,
+              "sigma": 2.1499157489573637,
+              "epsilon": 0.08512511478478851
+            },
+            "expected": -0.7819142866559424,
+            "actual": -0.7819142866559424,
+            "normalized_squared_error": 1.3590425662079882e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8265302441296858,
+              "mu": -0.8049053139141376,
+              "sigma": 2.08343500251031,
+              "epsilon": 0.08502005483817379
+            },
+            "expected": 0.7523492601403922,
+            "actual": 0.7523492601403922,
+            "normalized_squared_error": 1.1200837391112607e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.4909249839814551,
+              "mu": 0.4531210852271035,
+              "sigma": 2.1398969722480077,
+              "epsilon": 0.0811954808880668
+            },
+            "expected": -0.4250368181998059,
+            "actual": -0.4250368181998059,
+            "normalized_squared_error": 6.0523313388317075e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.8073769284226611,
+              "mu": 0.5947907935167414,
+              "sigma": 1.0098924166499834,
+              "epsilon": 0.03605950882670008
+            },
+            "expected": -1.3405661271672469,
+            "actual": -1.3405661271672467,
+            "normalized_squared_error": 1.8313101266206632e-32,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.7953368647988754,
+              "mu": 0.6469964695054995,
+              "sigma": 2.7081875405207056,
+              "epsilon": 0.06286535077154909
+            },
+            "expected": 0.41440580181703357,
+            "actual": 0.41440580181703357,
+            "normalized_squared_error": 1.6007180653526442e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.34603599575289357,
+              "mu": -0.1309543135115101,
+              "sigma": 1.012504799221688,
+              "epsilon": 0.045396029880462485
+            },
+            "expected": -0.20330987208311874,
+            "actual": -0.2033098720831187,
+            "normalized_squared_error": 3.924671400348514e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.6484853969558517,
+              "mu": -0.6533792383940922,
+              "sigma": 1.5799717497730628,
+              "epsilon": 0.060384200000715836
+            },
+            "expected": 1.4032714275626543,
+            "actual": 1.4032714275626543,
+            "normalized_squared_error": 1.1103909829327548e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.5762186712352872,
+              "mu": -0.12392740015984272,
+              "sigma": 1.2862538041372389,
+              "epsilon": 0.04307625685231468
+            },
+            "expected": -1.0924986304713207,
+            "actual": -1.0924986304713207,
+            "normalized_squared_error": 1.577646021601133e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.395376727367133,
+              "mu": 0.03137286108205273,
+              "sigma": 1.8790835653769407,
+              "epsilon": 0.029602203534550862
+            },
+            "expected": 0.7146298717692859,
+            "actual": 0.7146298717692859,
+            "normalized_squared_error": 8.826688810211855e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.5132783360915076,
+              "mu": 0.4612064918099321,
+              "sigma": 2.2643447076576884,
+              "epsilon": 0.05423571790454995
+            },
+            "expected": -0.8515921234100137,
+            "actual": -0.8515921234100138,
+            "normalized_squared_error": 2.8133473305319508e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.8636645357328283,
+              "mu": -0.15774024026690348,
+              "sigma": 2.6328117123516988,
+              "epsilon": 0.024347268275322482
+            },
+            "expected": -0.2656688217049568,
+            "actual": -0.26566882170495676,
+            "normalized_squared_error": 8.140534166357717e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.7552046049812318,
+              "mu": -0.06952327815948478,
+              "sigma": 2.9045519369795865,
+              "epsilon": 0.05005637444204866
+            },
+            "expected": 0.6175870676620189,
+            "actual": 0.6175870676620189,
+            "normalized_squared_error": 2.1985034267772413e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.21467538258724206,
+              "mu": -0.48263751018149237,
+              "sigma": 1.9344801978027408,
+              "epsilon": 0.07565084263232395
+            },
+            "expected": 0.3468992213650961,
+            "actual": 0.34689922136509604,
+            "normalized_squared_error": 8.206245957771229e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.406565753374152,
+              "mu": 0.6818310693150447,
+              "sigma": 1.2369057337234093,
+              "epsilon": 0.04841211970405873
+            },
+            "expected": -0.2141612794118293,
+            "actual": -0.2141612794118293,
+            "normalized_squared_error": 9.093155645886997e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.9439310400743612,
+              "mu": -0.8665637024123758,
+              "sigma": 1.9501341266816685,
+              "epsilon": 0.09164943480909629
+            },
+            "expected": 1.3764900430654432,
+            "actual": 1.3764900430654434,
+            "normalized_squared_error": 6.63726260088781e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.2755361188261558,
+              "mu": 0.26588918631345027,
+              "sigma": 1.5788386040563476,
+              "epsilon": 0.012824161629101868
+            },
+            "expected": 0.006060914862546961,
+            "actual": 0.0060609148625469615,
+            "normalized_squared_error": 2.3588249405104556e-37,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.44134174711355056,
+              "mu": -0.05992638489921709,
+              "sigma": 1.4563563098532566,
+              "epsilon": 0.09468623022925905
+            },
+            "expected": 0.3231814209209891,
+            "actual": 0.3231814209209891,
+            "normalized_squared_error": 4.152745064134543e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.7686575145862409,
+              "mu": -0.42807915471945823,
+              "sigma": 2.0118452878644293,
+              "epsilon": 0.03269805310366046
+            },
+            "expected": -0.16657918325444696,
+            "actual": -0.16657918325444696,
+            "normalized_squared_error": 4.731405615149662e-36,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.2658787624936463,
+              "mu": -0.006505683208317681,
+              "sigma": 2.885367762466594,
+              "epsilon": 0.07579969410221035
+            },
+            "expected": -0.08759149325039259,
+            "actual": -0.08759149325039259,
+            "normalized_squared_error": 5.929280333516701e-37,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.0865964853495718,
+              "mu": 0.6723715687756733,
+              "sigma": 1.6227971251264592,
+              "epsilon": 0.07051847744174933
+            },
+            "expected": -1.0387715387831207,
+            "actual": -1.0387715387831207,
+            "normalized_squared_error": 5.341108249461315e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.2506386194606764,
+              "mu": 0.8068697778705551,
+              "sigma": 2.4545061645316815,
+              "epsilon": 0.02638209965805966
+            },
+            "expected": -0.8293434359903405,
+            "actual": -0.8293434359903405,
+            "normalized_squared_error": 3.393806821821037e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.31182455771093576,
+              "mu": -0.8204270662640243,
+              "sigma": 1.4770152990749073,
+              "epsilon": 0.05070613217575573
+            },
+            "expected": 0.7411374880353985,
+            "actual": 0.7411374880353984,
+            "normalized_squared_error": 5.8719466775396124e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.6577760086458393,
+              "mu": -0.22205605811566498,
+              "sigma": 1.598763194427628,
+              "epsilon": 0.09994192359146725
+            },
+            "expected": -0.8451849207379826,
+            "actual": -0.8451849207379826,
+            "normalized_squared_error": 1.3233545204755739e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.07056067334987803,
+              "mu": -0.9196092008968295,
+              "sigma": 1.6783340878151822,
+              "epsilon": 0.08247778682692415
+            },
+            "expected": 0.48219150482474155,
+            "actual": 0.48219150482474155,
+            "normalized_squared_error": 3.4651770457574236e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.2831102606558082,
+              "mu": -0.1821530244502807,
+              "sigma": 2.4330997993411065,
+              "epsilon": 0.08377443506350918
+            },
+            "expected": -0.4374303734194993,
+            "actual": -0.4374303734194993,
+            "normalized_squared_error": 4.787470589143576e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.6231442610072797,
+              "mu": 0.7311858429223879,
+              "sigma": 2.4893904741568464,
+              "epsilon": 0.02275861888734094
+            },
+            "expected": -0.9371776979513278,
+            "actual": -0.9371776979513278,
+            "normalized_squared_error": 1.2722031679215608e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.9505248113528473,
+              "mu": 0.6412694919575419,
+              "sigma": 2.352344737096176,
+              "epsilon": 0.024067157986060843
+            },
+            "expected": 0.13013540288839676,
+            "actual": 0.13013540288839678,
+            "normalized_squared_error": 2.540092223713089e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8973381867903174,
+              "mu": 0.8698784539466593,
+              "sigma": 2.859966797634071,
+              "epsilon": 0.012901202363126396
+            },
+            "expected": 0.009558299526356551,
+            "actual": 0.009558299526356551,
+            "normalized_squared_error": 5.403839149570384e-38,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.005081774956120277,
+              "mu": -0.8480617547719969,
+              "sigma": 1.0892293259699675,
+              "epsilon": 0.07816872701408448
+            },
+            "expected": 0.7221015810854643,
+            "actual": 0.7221015810854643,
+            "normalized_squared_error": 1.3094581715315759e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.9508040799363653,
+              "mu": -0.20811850457736747,
+              "sigma": 2.321947205272375,
+              "epsilon": 0.08032166940393523
+            },
+            "expected": -0.30916005414217834,
+            "actual": -0.30916005414217834,
+            "normalized_squared_error": 3.5893751641913656e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.7366254687435698,
+              "mu": -0.7962944245773143,
+              "sigma": 2.5316034174240993,
+              "epsilon": 0.09533528004063595
+            },
+            "expected": 0.5835385099775297,
+            "actual": 0.5835385099775297,
+            "normalized_squared_error": 1.0844182267436438e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.29384545576262555,
+              "mu": -0.6530596713470758,
+              "sigma": 2.516291151407433,
+              "epsilon": 0.044198683704110266
+            },
+            "expected": 0.36981405437543985,
+            "actual": 0.36981405437543985,
+            "normalized_squared_error": 9.995988885841501e-36,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.4364174705814081,
+              "mu": -0.8493141635807901,
+              "sigma": 1.5153230183557564,
+              "epsilon": 0.0477117901603773
+            },
+            "expected": -0.3756175510627202,
+            "actual": -0.3756175510627202,
+            "normalized_squared_error": 1.5912242899999773e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.6790091870235084,
+              "mu": 0.642629109210147,
+              "sigma": 2.0313020953720153,
+              "epsilon": 0.031823204825720916
+            },
+            "expected": -0.6406001109612613,
+            "actual": -0.6406001109612613,
+            "normalized_squared_error": 3.08612468541773e-40,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.026590057529956912,
+              "mu": 0.7463378084340251,
+              "sigma": 2.436646079704616,
+              "epsilon": 0.08881409412009234
+            },
+            "expected": -0.28499667441361354,
+            "actual": -0.28499667441361354,
+            "normalized_squared_error": 3.028023235469961e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.2475784626534243,
+              "mu": 0.1899684553417269,
+              "sigma": 1.9155059300918427,
+              "epsilon": 0.08419440566361357
+            },
+            "expected": 0.028809320217438095,
+            "actual": 0.028809320217438095,
+            "normalized_squared_error": 1.703995268427395e-36,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.5066828179507477,
+              "mu": 0.4030387686145642,
+              "sigma": 2.5396050950777367,
+              "epsilon": 0.06128955884311073
+            },
+            "expected": 0.42433246870358265,
+            "actual": 0.42433246870358265,
+            "normalized_squared_error": 3.715725585014866e-36,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.8745967995172044,
+              "mu": -0.987500010325925,
+              "sigma": 1.528993537429212,
+              "epsilon": 0.06520433485500511
+            },
+            "expected": -0.5564533767193021,
+            "actual": -0.5564533767193021,
+            "normalized_squared_error": 1.8341582404573577e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.37406740215135104,
+              "mu": -0.8951836997964528,
+              "sigma": 2.484092644944445,
+              "epsilon": 0.09077274626159473
+            },
+            "expected": 0.20238584099381463,
+            "actual": 0.20238584099381463,
+            "normalized_squared_error": 7.145128106619575e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.7446682166163923,
+              "mu": 0.12204000501905599,
+              "sigma": 1.5326782992744477,
+              "epsilon": 0.044113297847483066
+            },
+            "expected": -0.5496656775806164,
+            "actual": -0.5496656775806164,
+            "normalized_squared_error": 3.6704797283018037e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.5073374440253668,
+              "mu": 0.660367743820526,
+              "sigma": 1.1347377290143954,
+              "epsilon": 0.08124975107216248
+            },
+            "expected": -1.7826706469803362,
+            "actual": -1.7826706469803364,
+            "normalized_squared_error": 7.910341652622066e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.3628053677936789,
+              "mu": -0.9647580802739311,
+              "sigma": 2.0912383858565686,
+              "epsilon": 0.09189820034014731
+            },
+            "expected": 0.2757283791981726,
+            "actual": 0.27572837919817267,
+            "normalized_squared_error": 1.6330950400390575e-33,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6393822179498647,
+              "mu": 0.7493893185419676,
+              "sigma": 1.7792252785913991,
+              "epsilon": 0.013482101121375384
+            },
+            "expected": -0.06136366806819753,
+            "actual": -0.06136366806819752,
+            "normalized_squared_error": 1.9309713517264986e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.982069255735571,
+              "mu": -0.8408352305844236,
+              "sigma": 2.8279533179074385,
+              "epsilon": 0.03457900674614189
+            },
+            "expected": -0.3986798735239638,
+            "actual": -0.3986798735239638,
+            "normalized_squared_error": 4.864540636360215e-37,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.2796605333624567,
+              "mu": -0.723628910882339,
+              "sigma": 1.3003803374512846,
+              "epsilon": 0.08633277719602124
+            },
+            "expected": -0.4009709121569372,
+            "actual": -0.4009709121569372,
+            "normalized_squared_error": 2.0618415703435725e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.20050429540698023,
+              "mu": 0.8190060223158122,
+              "sigma": 2.039668018006383,
+              "epsilon": 0.022695513664155644
+            },
+            "expected": -0.29989946845493254,
+            "actual": -0.29989946845493254,
+            "normalized_squared_error": 6.8752819588245125e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.549757446003289,
+              "mu": 0.3700947510321888,
+              "sigma": 2.8017862652173893,
+              "epsilon": 0.07987777884185679
+            },
+            "expected": -0.6662304028789854,
+            "actual": -0.6662304028789854,
+            "normalized_squared_error": 1.0249445453351206e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.6581517142744908,
+              "mu": -0.1176157878355848,
+              "sigma": 1.3460395290810065,
+              "epsilon": 0.04281993058245057
+            },
+            "expected": -0.3891941136865544,
+            "actual": -0.3891941136865544,
+            "normalized_squared_error": 3.5877374565615807e-35,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -1.1650963467227822,
+              "mu": -0.7287211185805063,
+              "sigma": 2.5802681886631498,
+              "epsilon": 0.02352742822160038
+            },
+            "expected": -0.1675919666322992,
+            "actual": -0.16759196663229917,
+            "normalized_squared_error": 2.9449013013625933e-34,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.9896538753742425,
+              "mu": -0.3511087605817016,
+              "sigma": 2.142464923451354,
+              "epsilon": 0.05320022279758125
+            },
+            "expected": 0.6106407610680058,
+            "actual": 0.6106407610680058,
+            "normalized_squared_error": 7.97404044853565e-34,
+            "status": "PASS"
+          }
+        ]
+      },
+      "errors": [],
+      "source_kind": "equation",
+      "equation_source": "paper.tex",
+      "equation_line": 1,
+      "equation_text": "y = \\frac{x-\\mu}{\\sigma+\\epsilon}",
+      "equation_latex": "y = \\frac{\\left(x - \\mu\\right)}{\\left(\\sigma + \\epsilon\\right)}",
+      "equation_graph": {
+        "schema_version": 1,
+        "root": "n6",
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "var",
+            "value": "x",
+            "inputs": [],
+            "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+            "expression": "x",
+            "latex": "x",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 11
+              }
+            ]
+          },
+          {
+            "id": "n1",
+            "op": "var",
+            "value": "mu",
+            "inputs": [],
+            "fingerprint": "d513c0d7d2ec287762ba36afaf8eaa2ebe8a6fb24bffdc17b74367400ccbff95",
+            "expression": "mu",
+            "latex": "\\mu",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 13
+              }
+            ]
+          },
+          {
+            "id": "n2",
+            "op": "sub",
+            "value": "",
+            "inputs": [
+              "n0",
+              "n1"
+            ],
+            "fingerprint": "50a90759159d0435721e4675609a2a4de7d00b8170bf427018c7d9f945fa03dc",
+            "expression": "(x - mu)",
+            "latex": "\\left(x - \\mu\\right)",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 12
+              }
+            ]
+          },
+          {
+            "id": "n3",
+            "op": "var",
+            "value": "sigma",
+            "inputs": [],
+            "fingerprint": "24221a51860686a7c3206fd895849c06fde791f977f7f7c30bf7253e6d6fc9fd",
+            "expression": "sigma",
+            "latex": "\\sigma",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 18
+              }
+            ]
+          },
+          {
+            "id": "n4",
+            "op": "var",
+            "value": "epsilon",
+            "inputs": [],
+            "fingerprint": "86927fbae43656fc4d646b7b561280a1c629134d1af443aa7bc842dca9b6ee55",
+            "expression": "epsilon",
+            "latex": "\\epsilon",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 25
+              }
+            ]
+          },
+          {
+            "id": "n5",
+            "op": "add",
+            "value": "",
+            "inputs": [
+              "n3",
+              "n4"
+            ],
+            "fingerprint": "708ad46202df5e0ec514c173ad60f2f6c3f766b6454663bd97d5a7513127f790",
+            "expression": "(sigma + epsilon)",
+            "latex": "\\left(\\sigma + \\epsilon\\right)",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 24
+              }
+            ]
+          },
+          {
+            "id": "n6",
+            "op": "div",
+            "value": "",
+            "inputs": [
+              "n2",
+              "n5"
+            ],
+            "fingerprint": "0199e434a367797b2fb422a2e21fcf93d483a249477de129f0551e851d5c54cf",
+            "expression": "((x - mu) / (sigma + epsilon))",
+            "latex": "\\frac{\\left(x - \\mu\\right)}{\\left(\\sigma + \\epsilon\\right)}",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 5
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n2",
+            "slot": 0
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "slot": 1
+          },
+          {
+            "from": "n3",
+            "to": "n5",
+            "slot": 0
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "slot": 1
+          },
+          {
+            "from": "n2",
+            "to": "n6",
+            "slot": 0
+          },
+          {
+            "from": "n5",
+            "to": "n6",
+            "slot": 1
+          }
+        ]
+      },
+      "generated_python": "def explicit_epsilon_reference(x, mu, sigma, epsilon):\n    return ((x - mu) / (sigma + epsilon))\n",
+      "code_source": "def f(x,mu,sigma,epsilon):\n    return (x-mu)/(sigma+epsilon)",
+      "code_line": 1,
+      "code_latex": "y = \\frac{\\left(x - \\mu\\right)}{\\left(\\sigma + \\epsilon\\right)}",
+      "code_graph": {
+        "schema_version": 1,
+        "root": "n6",
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "var",
+            "value": "x",
+            "inputs": [],
+            "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+            "expression": "x",
+            "latex": "x",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 1,
+                "column": 7
+              }
+            ]
+          },
+          {
+            "id": "n1",
+            "op": "var",
+            "value": "mu",
+            "inputs": [],
+            "fingerprint": "d513c0d7d2ec287762ba36afaf8eaa2ebe8a6fb24bffdc17b74367400ccbff95",
+            "expression": "mu",
+            "latex": "\\mu",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 1,
+                "column": 9
+              }
+            ]
+          },
+          {
+            "id": "n2",
+            "op": "sub",
+            "value": "",
+            "inputs": [
+              "n0",
+              "n1"
+            ],
+            "fingerprint": "50a90759159d0435721e4675609a2a4de7d00b8170bf427018c7d9f945fa03dc",
+            "expression": "(x - mu)",
+            "latex": "\\left(x - \\mu\\right)",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 2,
+                "column": 13
+              }
+            ]
+          },
+          {
+            "id": "n3",
+            "op": "var",
+            "value": "sigma",
+            "inputs": [],
+            "fingerprint": "24221a51860686a7c3206fd895849c06fde791f977f7f7c30bf7253e6d6fc9fd",
+            "expression": "sigma",
+            "latex": "\\sigma",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 1,
+                "column": 12
+              }
+            ]
+          },
+          {
+            "id": "n4",
+            "op": "var",
+            "value": "epsilon",
+            "inputs": [],
+            "fingerprint": "86927fbae43656fc4d646b7b561280a1c629134d1af443aa7bc842dca9b6ee55",
+            "expression": "epsilon",
+            "latex": "\\epsilon",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 1,
+                "column": 18
+              }
+            ]
+          },
+          {
+            "id": "n5",
+            "op": "add",
+            "value": "",
+            "inputs": [
+              "n3",
+              "n4"
+            ],
+            "fingerprint": "708ad46202df5e0ec514c173ad60f2f6c3f766b6454663bd97d5a7513127f790",
+            "expression": "(sigma + epsilon)",
+            "latex": "\\left(\\sigma + \\epsilon\\right)",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 2,
+                "column": 20
+              }
+            ]
+          },
+          {
+            "id": "n6",
+            "op": "div",
+            "value": "",
+            "inputs": [
+              "n2",
+              "n5"
+            ],
+            "fingerprint": "0199e434a367797b2fb422a2e21fcf93d483a249477de129f0551e851d5c54cf",
+            "expression": "((x - mu) / (sigma + epsilon))",
+            "latex": "\\frac{\\left(x - \\mu\\right)}{\\left(\\sigma + \\epsilon\\right)}",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 2,
+                "column": 12
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n2",
+            "slot": 0
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "slot": 1
+          },
+          {
+            "from": "n3",
+            "to": "n5",
+            "slot": 0
+          },
+          {
+            "from": "n4",
+            "to": "n5",
+            "slot": 1
+          },
+          {
+            "from": "n2",
+            "to": "n6",
+            "slot": 0
+          },
+          {
+            "from": "n5",
+            "to": "n6",
+            "slot": 1
+          }
+        ]
+      },
+      "minimal_code": "def explicit_epsilon_lowered(x, mu, sigma, epsilon):\n    return ((x - mu) / (sigma + epsilon))\n",
+      "code_pseudocode": "inputs x, mu, sigma, epsilon\nt_0 <- (x - mu)\nt_1 <- (sigma + epsilon)\nt_2 <- (t_0 / t_1)\nreturn t_2\n",
+      "code_algorithmic": "\\begin{algorithmic}\n\\Require $x, \\mu, \\sigma, \\epsilon$\n\\State $t_{0} \\gets \\left(x - \\mu\\right)$\n\\State $t_{1} \\gets \\left(\\sigma + \\epsilon\\right)$\n\\State $t_{2} \\gets \\frac{t_{0}}{t_{1}}$\n\\State \\Return $t_{2}$\n\\end{algorithmic}\n",
+      "equation_pseudocode": "inputs x, mu, sigma, epsilon\nt_0 <- (x - mu)\nt_1 <- (sigma + epsilon)\nt_2 <- (t_0 / t_1)\nreturn t_2\n",
+      "structural": {
+        "status": "IDENTICAL",
+        "differences": []
+      }
+    }
+  ],
+  "coverage": {
+    "selected_files": [
+      "paper.tex"
+    ],
+    "labeled_equations": 1,
+    "bound": 1,
+    "excluded": []
+  },
+  "duration_ms": 7.814,
+  "artifacts": {
+    "explicit-epsilon/reference.py": "92b06555fc52cb5e5311b07708106a670ca6797d91181c6fbdcfb04ce0c11cfe",
+    "explicit-epsilon/lowered.py": "21d2ac97b53e8c03cbc369e43f3c98d6e14c55d110cf3753e0ac6ab290e0d010",
+    "explicit-epsilon/from-code.tex": "93ca80eb15cfe30bd7842138342fba122e565d8f54b3d7468b4a5cb13e3749f7",
+    "explicit-epsilon/from-code.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
+    "explicit-epsilon/from-code.algorithmic.tex": "7f176787a517e40b52d4302759d084991685c33858ce857c15bef710cc16490e",
+    "explicit-epsilon/from-paper.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
+    "explicit-epsilon/equation.graph.json": "636248f45a5ed6b9455f3f1c7305e84e7b34a2b2cbdbf654def28cd80ffd4876",
+    "explicit-epsilon/equation.mmd": "6c281ce48128735b41e0b1a5f2739fc7ddbfb18a40c1b85f169a2e087501cd2c",
+    "explicit-epsilon/equation.svg": "eaea69a9a67731dec80859a9d51b1df14477a130dcb57c490833312ffeec506c",
+    "explicit-epsilon/code.graph.json": "3a72ed596deaafc9c583e0da189f6e4cb35871a0624261555d2e8829f55c7741",
+    "explicit-epsilon/code.mmd": "6c281ce48128735b41e0b1a5f2739fc7ddbfb18a40c1b85f169a2e087501cd2c",
+    "explicit-epsilon/code.svg": "eaea69a9a67731dec80859a9d51b1df14477a130dcb57c490833312ffeec506c",
+    "explicit-epsilon/nonempty_domain.smt2": "01f771b74ebd650d1776e1433239231635ba03155a21b18150b9362ef02d9c28",
+    "explicit-epsilon/totality.smt2": "4cac565c4b02e058e6b320f123340bee4e49ea12116327b0dd1232863cdffa8a",
+    "explicit-epsilon/equivalence.smt2": "0cd05088f1479c2a30271cd8905627e15645cb9f3313d7a5c4c4f284f67582ed"
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "payload": "601003a619280bc936f57b84dadd801d9dfc0d99b4819682c23a90054e9fecca",
+    "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
+  }
+}

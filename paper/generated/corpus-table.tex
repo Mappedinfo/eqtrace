@@ -1,0 +1,24 @@
+\begin{tabular}{p{.39\linewidth}lll}
+\toprule
+Authored case & Target & Observed & Real check \\
+\midrule
+exact square & Pass & Pass & Proved \\
+equivalent expansion & Pass & Pass & Proved \\
+explicit epsilon & Pass & Pass & Proved \\
+pseudocode square & Pass & Pass & Proved \\
+constant drift & Fail & Fail & Counterexample \\
+missing cross term & Fail & Fail & Counterexample \\
+ignored epsilon & Fail & Fail & Counterexample \\
+identity for square & Fail & Fail & Counterexample \\
+hidden fallback & Blocked & Blocked & Not run \\
+commented plan & Blocked & Blocked & Not run \\
+discarded computation & Blocked & Blocked & Not run \\
+unknown equation & Blocked & Blocked & Not run \\
+missing implementation & Blocked & Blocked & Not run \\
+division domain hole & Fail & Fail & Domain error \\
+vacuous domain & Fail & Fail & Empty domain \\
+float cancellation & Fail & Fail & Proved \\
+unmodeled call & Blocked & Blocked & Not run \\
+pseudocode branch & Blocked & Blocked & Not run \\
+\bottomrule
+\end{tabular}

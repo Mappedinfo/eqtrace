@@ -1,3 +1,3 @@
-"""Code companion for the paper: EqTrace: Executable Equation Contracts for Paper-Code Consistency"""
+"""EqTrace: inspectable paper, code, and execution contracts."""
 
 __version__ = "0.1.0"

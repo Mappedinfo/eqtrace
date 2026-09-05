@@ -1,2 +1,28 @@
 \section{Conclusion}
-不重复摘要；写清可复现入口（代码、数据、评估器版本）。
+EqTrace connects paper statements to code through hierarchical engineering contracts and stricter local equation checks. The prototype scanned a multi-codebase sequence pipeline, observed its declared run, and exported data summaries and interactive flows. Its scalar corpus and self-application demonstrated the intended acceptance and rejection behavior within a restricted language. The reusable result is a local review and merge-check tool whose evidence states distinguish declarations, observations, sampled agreement, and conditional real proof.
+
+\section*{Code, data, and manuscript availability}
+The source, MIT license, synthetic corpus, execution records, and this LaTeX manuscript are released together at \url{https://github.com/Mappedinfo/eqtrace}. The repository includes commands for regeneration and continuous integration. No private research data, model weights, or external API credentials are required.
+
+\section*{Development disclosure}
+The author proposed the paper--code consistency problem and requested this prototype. An AI coding assistant assisted implementation, test execution, and manuscript drafting. Reported classifications come from retained tool executions. This document is a software technical report and has not undergone peer review.
+
+\appendix
+\section{Abbreviations}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Term & Meaning \\
+\midrule
+AST & Abstract syntax tree \\
+CSV & Comma-separated values \\
+HTML & Hypertext Markup Language \\
+IR & Intermediate representation \\
+JSON & JavaScript Object Notation \\
+JSONL & JSON Lines \\
+MSE & Mean squared error \\
+SMT & Satisfiability modulo theories \\
+SVG & Scalable Vector Graphics \\
+\bottomrule
+\end{tabular}
+\end{center}

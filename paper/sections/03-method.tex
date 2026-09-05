@@ -1,2 +1,94 @@
 \section{Method}
-记号先在第一段统一声明；流程图用 TikZ 或代码生成，见 	exttt{figures/}。
+\label{sec:method}
+
+\subsection{The engineering graph separates declared meaning from observations}
+An architecture manifest names explicit codebase roots, local datasets, semantic blocks, virtual entities, and runs. Each block declares its meaning, file-membership selectors, and input/output entity identifiers. A parent relation supports nested blocks. The same block can include files from several roots, and named flows select views of the same entities for preprocessing, training, adaptation, or model inspection. Invalid memberships, hierarchy cycles, and dangling interfaces block the architecture check.
+
+The scanner parses Python files into an abstract syntax tree and collects symbols, imports, candidate call edges, and review findings such as exception handlers. Import and call matching can cross the declared codebase roots. Dynamic targets remain unresolved. These observations support navigation; they do not establish a complete call graph or infer the scientific meaning of a block.
+
+Dataset inspection computes a full-file hash and streams local comma-separated values (CSV) or JSON Lines (JSONL) records. It records observed types, missing values, and numeric ranges, then emits a LaTeX table from those statistics. A row limit produces an explicitly partial observation, and a required complete scan cannot pass in that state. Row contents are excluded from the exported summary. Column names and ranges can still carry sensitive information and remain subject to the author's release boundary.
+
+\subsection{Explicit execution binds blocks to current run evidence}
+The trace command executes a declared Python entry point in a child process. It records main-thread function calls and executed lines within selected source roots. For NumPy arrays, argument and return observations retain shapes and data types. Declared shape axes can contain fixed dimensions or symbolic dimensions; a repeated symbol enforces equality within one observation. Shape matches are observations of exercised calls, with no all-input guarantee.
+
+A run receipt binds the command to current source, dataset, checker, runtime, and output hashes. Declared outputs must be opened for writing during the run and exist afterwards. Merely finding an old output is insufficient. Rechecking rejects changed sources, datasets, artifacts, or recorded dependencies. A block is marked as having observed calls only if a function in a member file was called; module import alone does not satisfy this condition.
+
+The trace boundary covers selected Python files and the main thread. Native kernels, other threads, subprocesses, and the internal behavior of external dependencies remain outside it. File-open observations establish that a write path was exercised; they do not prove that an output was fully regenerated or scientifically valid. The pipeline command runs with the caller's ordinary permissions, so tracing requires trusted project code. Static scanning does not execute source files.
+
+\subsection{An equation contract binds independent sources}
+An equation contract identifies a labeled paper display, a Python function, and an ordered list of scalar inputs. It also declares a closed real interval for every input, optional nonzero assumptions, and a merge policy. Authors retain both source files. EqTrace reports disagreements and exports candidate translations without modifying either source.
+
+The paper frontend reads explicitly selected LaTeX files. Every labeled equation or algorithm in those files must have a contract or a reasoned exclusion. This inventory measures coverage within the selected files. It does not establish coverage of an entire manuscript, its transitive inputs, or unlabeled mathematical prose.
+
+Both frontends lower expressions into an ordered intermediate representation (IR), within the architecture in Figure~\ref{fig:pipeline}. Each node contains an operation, ordered operands, an optional rational constant or exponent, and a source location. The accepted arithmetic includes addition, subtraction, multiplication, division, negation, and small literal integer powers. Square root, exponential, and logarithm can be translated and sampled, but the initial solver backend rejects them as unsupported.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\small,box/.style={draw=black!35,rounded corners=2pt,text width=5.1cm,minimum height=1cm,align=center,inner sep=5pt},arr/.style={-{Stealth[length=2mm]},draw=black!55}]
+\node[box] (project) at (0,0) {Codebase roots + datasets\\Declared blocks and interfaces};
+\node[box] (sources) at (6.6,0) {LaTeX equation or pseudocode\\Independent scalar Python function};
+\node[box] (observed) at (0,-1.65) {Static scans + explicit run traces\\Current hashes and observed shapes};
+\node[box] (ir) at (6.6,-1.65) {Ordered expression representation\\Real equivalence + sampled execution};
+\node[box,text width=9cm] (view) at (3.3,-3.5) {Shared review artifacts: hierarchical flows, local computation graphs,\\dataset tables, source bindings, and separate evidence states};
+\draw[arr] (project)--(observed); \draw[arr] (sources)--(ir);
+\draw[arr] (observed.south)--(view.north west);
+\draw[arr] (ir.south)--(view.north east);
+\draw[arr,dashed] (observed.east)--node[above,font=\scriptsize]{bound leaf}(ir.west);
+\end{tikzpicture}
+\caption{Engineering observations and local equation checks meet in a shared inspection view. Block meaning remains declared, while proof status belongs to an explicitly bound scalar leaf.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Parsing rejects undeclared execution paths}
+The LaTeX parser consumes the complete expression and checks every symbol against the input declaration. Single letters, numeric subscripts, selected Greek commands, and explicit multi-letter identifiers have defined meanings. Unknown commands, incomplete expressions, and unsupported display environments produce a blocking diagnostic. This restricted grammar avoids treating LaTeX typography as an unambiguous programming language; general-purpose LaTeX parsing also has documented ambiguity and incomplete-parse risks \citep{SympyParsing2026}.
+
+The pseudocode frontend accepts a straight-line subset of the \texttt{algorithmic} environment. It requires an ordered input declaration, permits single-assignment statements, and requires one final return. Assignment expressions use the same scalar grammar. Branches, loops, and statements following a return are rejected. The Python frontend applies the corresponding restrictions to the abstract syntax tree (AST). It rejects decorators, dynamic calls, exception handlers, input reassignment, and unused computations.
+
+Execution uses the validated target function extracted from its source AST. EqTrace does not import the project module or call an alternate implementation when extraction fails. Module headers with unmodeled evaluation are rejected. The resulting evidence applies to the extracted function with ordinary scalar arguments. External callers, module initialization, dependency dispatch, and production tensor kernels remain outside this boundary.
+
+\subsection{Equivalence is conditional on a nonempty, defined domain}
+The proof backend translates rational expressions into Z3 real arithmetic. It first checks whether the declared assumptions have a model. It then asks whether any division or negative power can be undefined. Only after these checks succeed does it search for inputs where the two outputs differ. An unsatisfiable final query produces the status \texttt{PROVED\_REAL}; a satisfying model becomes an inspectable counterexample.
+
+Explicit totality checks are necessary because division by zero is underspecified in Z3's arithmetic semantics \citep{Z3Arithmetic2026}. Adding nonzero guards only to the final equality query could hide a missing domain assumption. EqTrace instead rejects an admitted input that makes either expression undefined. Solver timeouts and unknown results retain unresolved status, with a timeout applied to each query.
+
+The result is solver evidence under the implemented translation and declared real semantics. Replayable SMT-LIB queries and the solver version accompany it. EqTrace does not produce a Lean proof term or independently check an exported proof certificate. Correctness of the parsers, translation, solver, and expression semantics remains part of the trusted implementation.
+
+\subsection{Execution checks remain separate from real equivalence}
+Sampled execution compares the current source function with an equation interpreter. Boundary and coordinate probes precede seeded random probes within the declared intervals. Duplicate floating-point inputs are removed. The run fails if it cannot produce the requested number of distinct admissible samples. Rational expressions use exact fractions for the reference calculation on the sampled binary input values. Elementary functions explicitly use the standard mathematical library.
+
+The checker uses a normalized squared discrepancy to compare finite scalar results. For an actual value $a$ and a reference value $b$, the squared-error kernel is
+\begin{equation}
+\label{eq:self-square}
+ e = (a-b)^2
+\end{equation}
+The normalized kernel is
+\begin{equation}
+\label{eq:self-normalized}
+ r = \frac{(a-b)^2}{1+b^2}
+\end{equation}
+A sample passes when $r$ is no greater than the square of the declared tolerance. The discrepancy itself is evaluated using fractions to prevent overflow or cancellation inside the comparison metric. An undefined, nonscalar, or nonfinite result fails the sample.
+
+The normalized kernel is also specified as executable pseudocode in Algorithm~\ref{alg:self-normalized}. EqTrace checks both paper forms against the same implementation used by the execution harness. The squared kernel has a separate contract. These checks demonstrate self-application to small arithmetic kernels; they do not verify the checker that performs the checks.
+
+\begin{algorithm}[t]
+\caption{Normalized squared discrepancy}
+\label{alg:self-normalized}
+\begin{algorithmic}
+\Require $a, b$
+\Ensure $r$
+\State $d \gets a-b$
+\State $v \gets d \cdot d$
+\State $w \gets 1+b \cdot b$
+\State \Return $\frac{v}{w}$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{The merge policy preserves distinct evidence levels}
+For an equation contract, a strict merge pass requires a resolved source binding, a real-equivalence result, and a successful execution comparison. An ordered policy additionally requires identical ordered expressions. An algebraic policy allows different computation graphs when the remaining checks pass. A user can request sampling without the solver, but its status is \texttt{SAMPLED\_ONLY} and its exit code cannot satisfy the strict merge check.
+
+A receipt records source hashes, checker hashes, configuration, environment, solver queries, and per-sample results. Generated code, LaTeX, pseudocode, JSON graphs, Mermaid diagrams, and SVGs retain their own artifact hashes. Receipt verification rejects changed sources, changed artifacts, and changed checker or runtime versions. These hashes support accidental-change detection and freshness checks. They provide no signature-based authenticity guarantee.
+
+\subsection{A shared view preserves the evidence boundary}
+The engineering report distinguishes a successful static scan from a successful audit of required runs. A selected scalar contract can attach to a block only when its implementation belongs to that block. Its local proof and execution status remain separate from the block's declared meaning. In particular, proving a squared-error leaf does not establish the correctness of the surrounding evaluation pipeline.
+
+Offline HTML workbenches render the report without remote assets. The engineering view provides named flows, block-to-file inspection, cross-codebase dependencies, dataset tables, shape observations, and run evidence. The equation view provides a merged operation graph, source locations, solver witnesses, and sampled values. JSON exports expose the same evidence to automated reviewers. The optional live equation editor uses a loopback-only service to check temporary source pairs; it does not launch general pipeline runs.

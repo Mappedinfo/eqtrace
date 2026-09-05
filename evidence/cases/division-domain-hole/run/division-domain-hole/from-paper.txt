@@ -1,0 +1,4 @@
+inputs x
+t_0 <- (x / x)
+return t_0
+

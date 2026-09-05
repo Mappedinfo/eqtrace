@@ -1,0 +1,4 @@
+inputs x
+
+return x
+

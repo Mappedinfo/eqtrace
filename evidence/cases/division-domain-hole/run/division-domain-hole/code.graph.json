@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "root": "n0",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "const",
+      "value": "1",
+      "inputs": [],
+      "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+      "expression": "1",
+      "latex": "1",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "edges": []
+}

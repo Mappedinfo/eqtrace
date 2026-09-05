@@ -1,0 +1,78 @@
+schema_version = 1
+title = "EqTrace inspects its own implementation"
+equation_manifests = ["selfcheck.toml"]
+
+[[repositories]]
+id = "eqtrace"
+path = "code/src"
+description = "The checker source itself; this view provides static evidence only"
+
+[[entities]]
+id = "sources"
+label = "Independent paper and code"
+type = "source_text"
+meaning = "Labeled LaTeX equations, algorithmic bodies, and selected Python functions"
+[[entities]]
+id = "expression"
+label = "Ordered scalar expression"
+type = "expression_ir"
+meaning = "Immutable arithmetic nodes with ordered operands and source locations"
+[[entities]]
+id = "verdict"
+label = "Separate check results"
+type = "contract_report"
+meaning = "Structural comparison, conditional real proof, sampled execution, and provenance"
+[[entities]]
+id = "project"
+label = "Codebase and dataset roots"
+type = "architecture_manifest"
+meaning = "Explicit roots, semantic blocks, virtual interfaces, and run declarations"
+[[entities]]
+id = "observations"
+label = "Source and runtime evidence"
+type = "engineering_report"
+meaning = "Candidate source dependencies, data statistics, and bounded execution observations"
+[[entities]]
+id = "workbench"
+label = "Interactive review artifacts"
+type = "offline_html_json"
+meaning = "Equation and engineering views generated from the same report data"
+
+[[blocks]]
+id = "frontends"
+label = "Strict scalar frontends"
+meaning = "Reject unsupported LaTeX, pseudocode, and Python before extracting scalar semantics"
+members = [{repository="eqtrace",pattern="eqtrace/latex_parser.py"},{repository="eqtrace",pattern="eqtrace/pseudocode.py"},{repository="eqtrace",pattern="eqtrace/python_parser.py"},{repository="eqtrace",pattern="eqtrace/ir.py"}]
+inputs = ["sources"]
+outputs = ["expression"]
+[[blocks]]
+id = "checker"
+label = "Equation consistency checks"
+meaning = "Compare ordered expressions, query real arithmetic, execute validated functions, and bind receipts"
+members = [{repository="eqtrace",pattern="eqtrace/verify.py"},{repository="eqtrace",pattern="eqtrace/project.py"},{repository="eqtrace",pattern="eqtrace/kernels.py"}]
+equations = ["selfcheck.toml#self-squared-error", "selfcheck.toml#self-normalized-error", "selfcheck.toml#self-algorithm"]
+inputs = ["expression"]
+outputs = ["verdict"]
+[[blocks]]
+id = "engineering"
+label = "Engineering observations"
+meaning = "Scan Python roots and datasets, resolve explicit blocks, and audit declared execution receipts"
+members = [{repository="eqtrace",pattern="eqtrace/architecture.py"},{repository="eqtrace",pattern="eqtrace/codegraph.py"},{repository="eqtrace",pattern="eqtrace/datasets.py"},{repository="eqtrace",pattern="eqtrace/instrument.py"}]
+inputs = ["project"]
+outputs = ["observations"]
+[[blocks]]
+id = "review"
+label = "Review and command interface"
+meaning = "Generate offline workbenches and exports; expose CLI and constrained loopback comparison"
+members = [{repository="eqtrace",pattern="eqtrace/render.py"},{repository="eqtrace",pattern="eqtrace/architecture_render.py"},{repository="eqtrace",pattern="eqtrace/server.py"},{repository="eqtrace",pattern="eqtrace/cli.py"},{repository="eqtrace",pattern="eqtrace/__main__.py"},{repository="eqtrace",pattern="eqtrace/__init__.py"}]
+inputs = ["verdict", "observations"]
+outputs = ["workbench"]
+
+[[flows]]
+id = "formula-flow"
+label = "Paper and code consistency"
+nodes = ["sources","frontends","expression","checker","verdict","review","workbench"]
+[[flows]]
+id = "engineering-flow"
+label = "Engineering evidence"
+nodes = ["project","engineering","observations","review","workbench"]

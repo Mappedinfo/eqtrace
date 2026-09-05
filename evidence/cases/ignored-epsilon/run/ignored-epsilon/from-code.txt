@@ -1,0 +1,5 @@
+inputs x, mu, sigma, epsilon
+t_0 <- (x - mu)
+t_1 <- (t_0 / sigma)
+return t_1
+

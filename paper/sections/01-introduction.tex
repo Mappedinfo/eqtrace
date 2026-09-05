@@ -1,2 +1,9 @@
 \section{Introduction}
-贡献点以 2--3 条编号列出，每条可被实验章节验证。
+\label{sec:intro}
+Research implementations distribute a method across mathematical statements, data preparation, model components, optimization loops, and artifact writers. A plausible final result does not establish that each component followed the paper. A normalization stabilizer can disappear from a formula's implementation; a fallback can bypass a requested method; a checkpoint can remain from a previous run. Each failure requires evidence at a different scale.
+
+The problem addressed here is how to make those relationships inspectable before merging a research change. A useful check must connect statements to current source locations and distinguish intended structure from observed execution. For a multi-file project, that connection also requires intermediate entities: a semantic block can comprise files from several codebases, and an interface can describe an in-memory array with no dedicated source file.
+
+Mathematical document systems already provide executable notation. I Heart LA generates code from a linear-algebra language \citep{LiIHeartLA2021}. HeartDown embeds executable formulas and dynamic figures in scientific documents \citep{LiHeartDown2022}. EqTrace addresses a complementary review workflow in which paper and code remain independently authored sources. The author declares their bindings, and deterministic checks retain disagreements rather than automatically reconciling the sources.
+
+EqTrace combines an engineering evidence graph with local executable equation contracts. The graph organizes source observations, dataset statistics, declared block meaning, and bounded run traces. Selected equation leaves receive stricter parsing, real-arithmetic checks, and execution comparisons. Both layers expose their evidence through interactive views and machine-readable reports. The evaluation comprises a synthetic multi-file pipeline, an authored scalar fault corpus, and self-application. The resulting contribution is a reproducible prototype and an explicit evidence contract; comparative effectiveness on independent research repositories remains unmeasured.

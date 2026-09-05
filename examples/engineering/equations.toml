@@ -1,0 +1,11 @@
+schema_version = 1
+title = "A proved scalar leaf inside the engineering graph"
+paper_sources = ["paper/method.tex"]
+[[contracts]]
+id = "sample-error"
+label = "eq:sample-error"
+implementation = "shared/shared_math/scalar.py"
+function = "squared_error"
+inputs = ["a", "b"]
+domains = {a = [-10,10], b = [-10,10]}
+policy = "algebraic"

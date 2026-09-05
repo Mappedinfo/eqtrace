@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "root": "n0",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "edges": []
+}

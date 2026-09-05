@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "root": "n3",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 3,
+          "column": 0
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "const",
+      "value": "1",
+      "inputs": [],
+      "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+      "expression": "1",
+      "latex": "1",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 6,
+          "column": 28
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n1"
+      ],
+      "fingerprint": "92ccd22bd62105f080126e80673ab2011440f584430f05bb7960fd82c1bfd012",
+      "expression": "(x + 1)",
+      "latex": "\\left(x + 1\\right)",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 6,
+          "column": 27
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "pow",
+      "value": "2",
+      "inputs": [
+        "n2"
+      ],
+      "fingerprint": "32a7d0382bb6b63438dfc7ce60a2bb938afbc872b51020fa176cdf38be4359e2",
+      "expression": "((x + 1) ** 2)",
+      "latex": "\\left(\\left(x + 1\\right)\\right)^{2}",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 7,
+          "column": 27
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n2",
+      "slot": 0
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "slot": 1
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "slot": 0
+    }
+  ]
+}

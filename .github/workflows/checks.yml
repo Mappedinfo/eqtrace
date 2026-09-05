@@ -1,0 +1,39 @@
+name: Checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: astral-sh/setup-uv@d0d8abe699bfb85fec6de9f7adb5ae17292296ff
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+      - run: uv sync --project code --extra proof --all-groups --frozen --python '${{ matrix.python }}'
+      - run: make test demo build
+      - name: Install Chromium
+        if: matrix.python == '3.13'
+        run: code/.venv/bin/python -m playwright install --with-deps chromium
+      - name: Inspect both workbenches
+        if: matrix.python == '3.13'
+        run: |
+          code/.venv/bin/eqtrace serve eqtrace.toml > /tmp/eqtrace-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          code/.venv/bin/python scripts/wait_for_server.py
+          make browser
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: evidence-python-${{ matrix.python }}
+          path: |
+            artifacts/
+            evidence/results.*
+            evidence/engineering-summary.json
+            code/dist/
+          retention-days: 14

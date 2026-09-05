@@ -1,0 +1,12 @@
+schema_version = 1
+title = "exact-square"
+paper_sources = ["paper.tex"]
+[[contracts]]
+implementation = "implementation.py"
+id = "exact-square"
+label = "eq:exact-square"
+function = "f"
+inputs = ["x"]
+domains = { "x" = [-2, 2] }
+nonzero = []
+policy = "algebraic"

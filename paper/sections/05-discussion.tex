@@ -1,2 +1,13 @@
-\section{Discussion}
-局限、失败案例、与最强 baseline 的真实差距。
+\section{Discussion and limitations}
+\label{sec:discussion}
+EqTrace provides a reviewable boundary between a method's intended organization and the evidence collected from its implementation. Authors can navigate from a declared stage to current source files, inspect which calls were observed, and examine a local equation disagreement. Unsupported scalar paths remain blocking. Complex project paths can still be scanned and traced, with unresolved behavior visible at the engineering layer.
+
+The principal semantic limit is that whole-block meaning and dataflow are authored declarations. Static dependencies and bounded run events cannot prove that a preprocessing stage has the stated meaning or that training implements every equation in a paper. The current mathematical layer accepts only a restricted scalar language. Tensor operators, iteration, state, automatic differentiation, and optimized kernels require additional semantics before they can receive comparable proof claims.
+
+Real and executable semantics also differ by construction. Solver checks use mathematical reals and exact decimal constants. Execution observes CPython operations and binary inputs. Sampling can expose numerical discrepancies but cannot establish a global floating-point error bound. Interval analysis, floating-point solver encodings, or validated numerics could strengthen selected operators.
+
+The evidence records support freshness checks for the observed environment. They are not authenticated attestations, and a malicious process could manipulate its tracing environment. Recorded dependency versions cover selected observed numerical libraries, not the complete operating system or accelerator stack. Matching output hashes and write events establish a narrower fact than a full reproducible build. The author must define which sources, data, dependencies, and outputs are material to the experiment.
+
+The evaluation is an authored regression suite and one synthetic engineering example. This design exercises implemented guarantees and rejection states. It cannot establish detection effectiveness or practical overhead on unseen research repositories. An independent study should include valid alternative implementations, realistic tolerances, ambiguous block boundaries, and disagreements labeled without EqTrace's output.
+
+The workbench can assist human or AI review through common structured evidence. Scientific assumptions, chosen domains, and empirical conclusions remain author and reviewer judgments. A future Lean backend could provide independently checked expression semantics or translations. That extension would still need an explicit connection to the code actually executed.

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "root": "n3",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 1,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "mul",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n0"
+      ],
+      "fingerprint": "22a9813f1ed1a0e304e816998888416b8bc1218e403846ba5bc1b327354c02ce",
+      "expression": "(x * x)",
+      "latex": "\\left(x \\cdot x\\right)",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 12
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "const",
+      "value": "1",
+      "inputs": [],
+      "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+      "expression": "1",
+      "latex": "1",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 16
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n1",
+        "n2"
+      ],
+      "fingerprint": "7fe0563143c1377a0bf6af1c77ff477cf171e0949ba80d8becceaee31b04481e",
+      "expression": "((x * x) + 1)",
+      "latex": "\\left(\\left(x \\cdot x\\right) + 1\\right)",
+      "origins": [
+        {
+          "source": "implementation.py",
+          "line": 2,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 0
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 1
+    },
+    {
+      "from": "n1",
+      "to": "n3",
+      "slot": 0
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "slot": 1
+    }
+  ]
+}

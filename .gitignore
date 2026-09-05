@@ -17,3 +17,4 @@ paper/*.toc
 paper/*.fls
 paper/*.fdb_latexmk
 paper/main.pdf
+paper/*.xdv

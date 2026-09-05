@@ -1,0 +1,822 @@
+{
+  "schema_version": 1,
+  "tool": "eqtrace",
+  "version": "0.1.0",
+  "title": "division-domain-hole",
+  "created_at": "2026-09-05T02:50:36.350889+00:00",
+  "status": "FAIL",
+  "proof_required": true,
+  "manifest": "eqtrace.toml",
+  "sources": {
+    "eqtrace.toml": "b9044b8f6a7b27babe721810e4aee29e32cbfb849e1ed5e3f30f6e5d6eac66e6",
+    "paper.tex": "40308cbfb20d43276d9ce3ba3e63bc569bc39ce888bac88c6521f9f9e21a2573",
+    "implementation.py": "cbf7f31ddddf942901f6c0a84a1b1aba9914c4a273efc03a936ab623af9344c1"
+  },
+  "checker": {
+    "__init__.py": "03328ec28db34e363504a689ca19f9c342d7e4e435b25fd61d5d66673e303c08",
+    "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
+    "architecture.py": "9c6d25e086df0035b39d7bf9151c634ed15b99fa43bf32183260a2b86ec24a4f",
+    "architecture_render.py": "6f2a3968ce42c7f4ab14546939fe980efb59966c976a86f56d591a164489a247",
+    "cli.py": "5bcea39a65933d5d285658ac0a410fea9f13b45f537476d09de6f0b9da40f0c8",
+    "codegraph.py": "02f63a15cd0594482644f51146b374c0bc501c4b96f9967b3cb598080df7ab7f",
+    "datasets.py": "7777c2e00901ae5152393b6d8b0fd866b665ea4a0bad2ae277560d9e95ca9bab",
+    "instrument.py": "8cb0821fb05fb5e5783a602f7c2f16e091405e5ed4aba8a7d769329a44f34963",
+    "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
+    "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
+    "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
+    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
+    "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
+    "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
+    "server.py": "42a7771cdd960389ac42624669d2a1665860d33419b8f84a67fb6f6a850323f7",
+    "verify.py": "c398d572cba29c5721c42cdc7cc39e5d96b14ac4118333d8b8654d99abba18d8",
+    "web/app.js": "a50fa0e07e36106348df106b53c613cfd9089c17334be9ce61df8986b81d19fc",
+    "web/architecture.css": "6abaebc13b3dcdad4bb233307a903dbacc4befba09f82acd6c153ee8005e6b3a",
+    "web/architecture.html": "5c34117a0f1c0246d68587396a77e92bca2bc6ad0f4e368a8fda778e2296615c",
+    "web/architecture.js": "b4f74c867c86454e434dc2afaefa6d3bca222aabcbd82670013125e77f064951",
+    "web/index.html": "da78aec7c1bd6118fba79338516d1a3c56e5b3d1e28b5386596fa448eb7efeb6",
+    "web/style.css": "fccbce0103460b5616bb13c5fb28bcccc8f1f1aac8e5ca716e925f097257ec99"
+  },
+  "environment": {
+    "python": "3.13.12",
+    "implementation": "CPython",
+    "platform": "Darwin"
+  },
+  "scope": "Only manifest-selected equation files and validated target functions; no transitive imports or external callers",
+  "errors": [],
+  "contracts": [
+    {
+      "id": "division-domain-hole",
+      "label": "eq:division-domain-hole",
+      "description": "",
+      "status": "FAIL",
+      "policy": "algebraic",
+      "inputs": [
+        "x"
+      ],
+      "domains": {
+        "x": [
+          -1,
+          1
+        ]
+      },
+      "nonzero": [],
+      "implementation": "implementation.py",
+      "function": "f",
+      "proof": {
+        "status": "DOMAIN_ERROR",
+        "reason": "A division or negative power can be undefined in the declared domain",
+        "scope": "Real denotations over declared intervals; not IEEE floating-point equivalence or a Lean certificate",
+        "backend": "z3",
+        "version": "4.16.0",
+        "timeout_ms_per_query": 3000,
+        "queries": [
+          {
+            "name": "nonempty_domain",
+            "smt2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Real)\n(assert\n (<= (- 1.0) x))\n(assert\n (>= 1.0 x))\n(check-sat)\n",
+            "result": "sat",
+            "model": {
+              "x": "0"
+            }
+          },
+          {
+            "name": "totality",
+            "smt2": "; benchmark generated from python API\n(set-info :status unknown)\n(declare-fun x () Real)\n(assert\n (<= (- 1.0) x))\n(assert\n (>= 1.0 x))\n(assert\n (not (and (and (distinct x 0.0) true))))\n(check-sat)\n",
+            "result": "sat",
+            "model": {
+              "x": "0"
+            }
+          }
+        ],
+        "witness": {
+          "x": "0"
+        },
+        "duration_ms": 1.455
+      },
+      "execution": {
+        "status": "FAIL",
+        "requested": 64,
+        "executed": 64,
+        "passed": 63,
+        "seed": 1729,
+        "tolerance": 1e-10,
+        "distinct_inputs": 64,
+        "reference_semantics": "exact rational arithmetic on binary input values",
+        "execution_scope": "validated target function extracted from source; module and external callers are not executed",
+        "records": [
+          {
+            "inputs": {
+              "x": 0.0
+            },
+            "status": "ERROR",
+            "reason": "ZeroDivisionError: Fraction(1, 0)"
+          },
+          {
+            "inputs": {
+              "x": -1.0
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 1.0
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.30748653065908194
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.9100552703665756
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.002607737348912176
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.6606851027302838
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.8836491897254874
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.7360116791907403
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.039808551956068916
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.7476552611287002
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.42755902562525594
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8728429867280274
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8065965928981658
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6995345649997717
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.09724209861985833
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.9884991648425945
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.0859655253051319
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.20774996720508687
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.4791759059413587
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.43526428912577075
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.17880367147572174
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.2956193714535442
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.5539879334120275
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6396345157957715
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.1499157489573637
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6694469952175224
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.4132651220648429
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.8049053139141376
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.08343500251030989
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6671123297371955
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.24546249199072756
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.4531210852271035
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.1398969722480079
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.5821217975125956
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.40368846421133053
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.5947907935167414
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.9901075833500166
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.42089980385110937
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8976684323994377
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6469964695054995
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.7081875405207056
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.17478557270109096
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.17301799787644678
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.1309543135115101
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.987495200778312
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.21342155821194475
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.8242426984779259
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.6533792383940922
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.42002825022693724
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.11964888890479641
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.7881093356176436
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.12392740015984272
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.7137461958627611
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.2649720699485627
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.6976883636835665
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.03137286108205273
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.12091643462305934
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.5643954770099808
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.7566391680457538
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.4612064918099321
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": 0.2643447076576886
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.016984046565556632
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          },
+          {
+            "inputs": {
+              "x": -0.43183226786641415
+            },
+            "expected": 1.0,
+            "actual": 1,
+            "normalized_squared_error": 0.0,
+            "status": "PASS"
+          }
+        ]
+      },
+      "errors": [],
+      "source_kind": "equation",
+      "equation_source": "paper.tex",
+      "equation_line": 1,
+      "equation_text": "y = x/x",
+      "equation_latex": "y = \\frac{x}{x}",
+      "equation_graph": {
+        "schema_version": 1,
+        "root": "n1",
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "var",
+            "value": "x",
+            "inputs": [],
+            "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+            "expression": "x",
+            "latex": "x",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 5
+              },
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 7
+              }
+            ]
+          },
+          {
+            "id": "n1",
+            "op": "div",
+            "value": "",
+            "inputs": [
+              "n0",
+              "n0"
+            ],
+            "fingerprint": "3791da2e3e69010ffe725d1941d552e2d270cedc2aa3d5e9374a11b53584b8e8",
+            "expression": "(x / x)",
+            "latex": "\\frac{x}{x}",
+            "origins": [
+              {
+                "source": "paper.tex",
+                "line": 3,
+                "column": 6
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "slot": 0
+          },
+          {
+            "from": "n0",
+            "to": "n1",
+            "slot": 1
+          }
+        ]
+      },
+      "generated_python": "def division_domain_hole_reference(x):\n    return (x / x)\n",
+      "code_source": "def f(x):\n    return 1",
+      "code_line": 1,
+      "code_latex": "y = 1",
+      "code_graph": {
+        "schema_version": 1,
+        "root": "n0",
+        "nodes": [
+          {
+            "id": "n0",
+            "op": "const",
+            "value": "1",
+            "inputs": [],
+            "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+            "expression": "1",
+            "latex": "1",
+            "origins": [
+              {
+                "source": "implementation.py",
+                "line": 2,
+                "column": 12
+              }
+            ]
+          }
+        ],
+        "edges": []
+      },
+      "minimal_code": "def division_domain_hole_lowered(x):\n    return 1\n",
+      "code_pseudocode": "inputs x\n\nreturn 1\n",
+      "code_algorithmic": "\\begin{algorithmic}\n\\Require $x$\n\n\\State \\Return $1$\n\\end{algorithmic}\n",
+      "equation_pseudocode": "inputs x\nt_0 <- (x / x)\nreturn t_0\n",
+      "structural": {
+        "status": "DIFFERENT",
+        "differences": [
+          {
+            "path": "return",
+            "equation": "(x / x)",
+            "code": "1",
+            "equation_line": 3,
+            "code_line": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": {
+    "selected_files": [
+      "paper.tex"
+    ],
+    "labeled_equations": 1,
+    "bound": 1,
+    "excluded": []
+  },
+  "duration_ms": 4.394,
+  "artifacts": {
+    "division-domain-hole/reference.py": "7a8c0c875d2f762139bfd0c87328494cdfd8d83d5bff4fa9b888bfa3d3729e19",
+    "division-domain-hole/lowered.py": "79edc09cc3d69763683179e0ac4fbd8baa10c158f2893fb4d05811c71329c966",
+    "division-domain-hole/from-code.tex": "5f545a2400c375b3e6459d5a68906a63362b523c246732b99d2c00c15aa28651",
+    "division-domain-hole/from-code.txt": "0e9b69f1335bc94950adb21498436b0bc323042ac5fbf99a661e26c2ae720e58",
+    "division-domain-hole/from-code.algorithmic.tex": "752cca80f6071707619b1bc4e2d825bf2c3e5145db5a55f893085fc7dce0a866",
+    "division-domain-hole/from-paper.txt": "3411c3591060bd1b17f9ead1efa16cd3d5eb2b3c39149a5dfc26d281b5bab85b",
+    "division-domain-hole/equation.graph.json": "9de4be13af1d90c7477878eda3ee0fbe4d148d79319c569493833a99a07a8b06",
+    "division-domain-hole/equation.mmd": "42423c76f137cc4717f1f377ed56ea0d09d89dbb758498a78c8aea6dd800f6e4",
+    "division-domain-hole/equation.svg": "a5a89d88c2e62017105fad96ecb526fa9471ed02d8943cd75ddc193f85df88bd",
+    "division-domain-hole/code.graph.json": "3e0b4557f77d0218ba38c237725ec5caec97fe46a47523a2f8c963b549e902ed",
+    "division-domain-hole/code.mmd": "451108cfd789a8ca23930d1e7484374faf024f7e84d88717584f1a18f5dac326",
+    "division-domain-hole/code.svg": "03d2a979135b10dae28dc8aa5645cc31380da29a0105681e6763dd30c520ecff",
+    "division-domain-hole/nonempty_domain.smt2": "53a659fa1ad815782db1fe219610db7f6b31ff54a13782a924b4d9cda80aae8b",
+    "division-domain-hole/totality.smt2": "5bdb93a1706af2cae9f08a806f55c796da93a462629e8dbb05e3d52f7dcd9742"
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "payload": "36588068c263f1cc751cd0510a3fcea12d5f2e2e71def98056ee2390caa5927c",
+    "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
+  }
+}

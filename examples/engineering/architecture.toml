@@ -1,0 +1,161 @@
+schema_version = 1
+title = "A sequence experiment across two codebases"
+equation_manifests = ["equations.toml"]
+
+[[repositories]]
+id = "research"
+path = "research"
+description = "Sequence data, frozen attention encoder, head training and adaptation"
+[[repositories]]
+id = "shared"
+path = "shared"
+description = "Shared numeric and artifact utilities, resolved across codebase roots"
+
+[[datasets]]
+id = "sequences"
+path = "data/sequences.csv"
+description = "384 synthetic sequences; train, validation, and adaptation splits"
+required_columns = ["sample_id", "split", "x0", "x1", "x2", "x3", "x4", "x5", "target"]
+allow_nulls = false
+
+[[entities]]
+id = "prepared"
+label = "Prepared sequences"
+type = "numpy_archive"
+meaning = "Deterministic train / validation / adaptation arrays"
+shape = "N × 6 and N targets, by split"
+path = "products/prepared.npz"
+[[entities]]
+id = "features"
+label = "Encoded features"
+type = "virtual_tensor"
+meaning = "Pooled output of a frozen attention encoder; produced in memory on each use"
+shape = "N × 8 (declared)"
+shape_axes = ["N", 8]
+dtype = "float64"
+observed_at = {file="research:sequence_lab/model/encoder.py", function="encode", argument="$return"}
+[[entities]]
+id = "tokens"
+label = "Embedded tokens"
+type = "virtual_tensor"
+meaning = "Embedded tokens after pre-normalization, passed into self-attention"
+shape = "N × 6 × 8 (declared)"
+shape_axes = ["N", 6, 8]
+dtype = "float64"
+observed_at = {file="research:sequence_lab/model/attention.py", function="attention", argument="values"}
+[[entities]]
+id = "attended"
+label = "Attention output"
+type = "virtual_tensor"
+meaning = "Single-head attention result before residual addition"
+shape = "N × 6 × 8 (declared)"
+shape_axes = ["N", 6, 8]
+observed_at = {file="research:sequence_lab/model/attention.py", function="attention", argument="$return"}
+[[entities]]
+id = "transformed"
+label = "Block output"
+type = "virtual_tensor"
+meaning = "Residual attention plus fixed feed-forward transformation"
+shape = "N × 6 × 8 (declared)"
+shape_axes = ["N", 6, 8]
+observed_at = {file="research:sequence_lab/model/block.py", function="transformer_block", argument="$return"}
+[[entities]]
+id = "trained"
+label = "Trained head checkpoint"
+type = "numpy_archive"
+meaning = "Frozen encoder parameters and head optimized on the training split"
+path = "products/trained.npz"
+[[entities]]
+id = "adapted"
+label = "Adapted head checkpoint"
+type = "numpy_archive"
+meaning = "Same frozen encoder and head fine-tuned on the adaptation split"
+path = "products/adapted.npz"
+[[entities]]
+id = "predictions"
+label = "Held-out predictions"
+type = "csv_table"
+meaning = "Predictions and targets for the untouched validation split"
+path = "products/predictions.csv"
+[[entities]]
+id = "metrics"
+label = "Loss curves and metrics"
+type = "json_record"
+meaning = "Observed training and fine-tuning loss curves plus held-out MSE"
+path = "products/metrics.json"
+
+[[blocks]]
+id = "preprocess"
+label = "Data preprocessing"
+meaning = "Read and validate CSV, split records, and write NumPy arrays"
+members = [{repository="research", pattern="sequence_lab/data/*.py"}, {repository="shared", pattern="shared_math/serialization.py"}]
+inputs = ["sequences"]
+outputs = ["prepared"]
+[[blocks]]
+id = "encoder"
+label = "Frozen attention encoder"
+meaning = "One pre-norm self-attention and feed-forward block; weights are fixed in this example"
+members = [{repository="research", pattern="sequence_lab/model/*.py"}, {repository="shared", pattern="shared_math/softmax.py"}]
+inputs = ["prepared"]
+outputs = ["features"]
+[[blocks]]
+id = "attention"
+label = "Self-attention"
+parent = "encoder"
+meaning = "Q/K/V projections, scaled dot products, stable softmax, and output projection"
+members = [{repository="research", pattern="sequence_lab/model/attention.py"}, {repository="shared", pattern="shared_math/softmax.py"}]
+inputs = ["tokens"]
+outputs = ["attended"]
+[[blocks]]
+id = "feedforward"
+label = "Feed-forward sub-block"
+parent = "encoder"
+meaning = "Fixed two-layer ReLU transformation with residual composition in the parent block"
+members = [{repository="research", pattern="sequence_lab/model/feedforward.py"}, {repository="research", pattern="sequence_lab/model/block.py"}]
+inputs = ["attended"]
+outputs = ["transformed"]
+[[blocks]]
+id = "train-head"
+label = "Train regression head"
+meaning = "Optimize only the linear head with full-batch MSE gradients for 180 steps"
+members = [{repository="research", pattern="sequence_lab/training/train.py"}, {repository="research", pattern="sequence_lab/training/loop.py"}, {repository="research", pattern="sequence_lab/training/gradients.py"}, {repository="research", pattern="sequence_lab/training/optimizer.py"}, {repository="shared", pattern="shared_math/metrics.py"}]
+inputs = ["prepared", "features"]
+outputs = ["trained"]
+[[blocks]]
+id = "finetune-head"
+label = "Fine-tune regression head"
+meaning = "Load the trained checkpoint and adapt only the head for 80 further steps"
+members = [{repository="research", pattern="sequence_lab/training/finetune.py"}, {repository="research", pattern="sequence_lab/training/checkpoint.py"}, {repository="research", pattern="sequence_lab/training/loop.py"}, {repository="shared", pattern="shared_math/serialization.py"}]
+inputs = ["prepared", "trained"]
+outputs = ["adapted"]
+[[blocks]]
+id = "evaluate"
+label = "Held-out evaluation"
+meaning = "Run the adapted model on validation records and export predictions and metrics"
+members = [{repository="research", pattern="sequence_lab/evaluation/*.py"}, {repository="research", pattern="sequence_lab/pipeline.py"}, {repository="shared", pattern="shared_math/predictions.py"}, {repository="shared", pattern="shared_math/report.py"}, {repository="shared", pattern="shared_math/scalar.py"}]
+equations = ["equations.toml#sample-error"]
+inputs = ["prepared", "adapted"]
+outputs = ["predictions", "metrics"]
+
+[[flows]]
+id = "experiment-flow"
+label = "Preprocess → train → fine-tune → evaluate"
+nodes = ["sequences", "preprocess", "prepared", "encoder", "features", "train-head", "trained", "finetune-head", "adapted", "evaluate", "predictions", "metrics"]
+[[flows]]
+id = "encoder-flow"
+label = "Inside the attention encoder"
+nodes = ["tokens", "attention", "attended", "feedforward", "transformed"]
+[[flows]]
+id = "adaptation-flow"
+label = "Checkpoint adaptation and validation"
+nodes = ["prepared", "trained", "finetune-head", "adapted", "evaluate", "predictions", "metrics"]
+
+[[runs]]
+id = "sequence-run"
+repository = "research"
+entrypoint = "run_pipeline.py"
+blocks = ["preprocess", "encoder", "attention", "feedforward", "train-head", "finetune-head", "evaluate"]
+inputs = ["sequences"]
+outputs = ["prepared", "trained", "adapted", "predictions", "metrics"]
+receipt = "products/run-receipt.json"
+timeout_seconds = 120

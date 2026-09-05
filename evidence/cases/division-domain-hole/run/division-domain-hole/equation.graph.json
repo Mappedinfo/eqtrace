@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "root": "n1",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "source": "paper.tex",
+          "line": 3,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "div",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n0"
+      ],
+      "fingerprint": "3791da2e3e69010ffe725d1941d552e2d270cedc2aa3d5e9374a11b53584b8e8",
+      "expression": "(x / x)",
+      "latex": "\\frac{x}{x}",
+      "origins": [
+        {
+          "source": "paper.tex",
+          "line": 3,
+          "column": 6
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 0
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 1
+    }
+  ]
+}

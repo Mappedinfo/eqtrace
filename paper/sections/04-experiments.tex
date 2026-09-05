@@ -1,2 +1,51 @@
-\section{Experiments}
-所有图由 	exttt{scripts/} 下代码根据真实数据生成；主结果表用 booktabs。
+\section{Prototype evaluation}
+\label{sec:experiments}
+
+\subsection{A multi-file sequence pipeline exercises the engineering layer}
+The engineering example comprises \EngineeringFiles{} Python source files across \EngineeringCodebases{} codebase roots. Its manifest defines \EngineeringBlocks{} semantic blocks and \EngineeringFlows{} named flows. Membership includes shared numerical and serialization utilities in the second root. The example uses \DatasetRows{} synthetic sequence records; their \DatasetColumns{} columns are summarized directly from the scanned file in Table~\ref{tab:data}. The deterministic generator and its seed are included in the release.
+
+The pipeline prepares arrays, applies a frozen single-block attention encoder, trains a linear regression head, adapts that head, and evaluates held-out records. The attention module performs query, key, and value projections followed by scaled dot products and softmax. The parent block adds residual paths and a feed-forward transformation. Encoder parameters remain fixed throughout. Only the regression head is optimized, so this example supplies no evidence about full Transformer training or model quality on an external task.
+
+The retained run produced a prepared dataset and two checkpoints. It also wrote predictions and loss records. Main-thread events covered \ObservedFiles{} selected source files, and all \ShapeContracts{} declared array-shape contracts matched observed calls. One scalar squared-error contract was bound to the prediction writer's block and passed separately. The architecture audit accepted the current run and its artifacts.
+
+The recorded head-training loss changed from \TrainingInitial{} to \TrainingFinal{} over \TrainingSteps{} updates. Adaptation loss changed from \AdaptationInitial{} to \AdaptationFinal{} over \AdaptationSteps{} updates. The held-out mean squared error (MSE) was \ValidationMSE{} across \ValidationSamples{} records. These values confirm that optimization and evaluation produced inspectable numerical artifacts; they are not a comparison against another learning method.
+
+\begin{table}[t]
+\centering
+\small
+\input{generated/dataset-table}
+\caption{The dataset scan found a complete synthetic table and generated its field summary directly from observed records. Ranges describe this fixture and carry no inferred domain meaning.}
+\label{tab:data}
+\end{table}
+
+\subsection{An authored corpus exercises the declared failure boundary}
+The evaluation comprised \CorpusCases{} synthetic cases specified before the reported run. \ValidCases{} represented valid implementations, including an algebraic rewrite and a pseudocode source. The remaining cases exercised formula drift, missing implementations, unsupported control paths, domain failures, and floating-point divergence. Each case retained its exact paper source, implementation, manifest, and generated receipt. Table~\ref{tab:corpus} was generated from those run records.
+
+Each runnable case requested 64 distinct inputs with seed 1729 and tolerance $10^{-10}$. Proof queries had a 3000 millisecond timeout per query. The released run recorded CPython 3.13.12 and Z3 4.16.0 on an ARM64 macOS host. The total number of executed samples was \ExecutedSamples{}. Cases rejected before translation generated no execution evidence. The corpus is a regression suite authored alongside the tool, with no statistical sampling model or real-world prevalence estimate.
+
+\begin{table}[htbp]
+\centering
+\small
+\input{generated/corpus-table}
+\caption{The prototype matched all authored classifications in the released synthetic corpus. Blocked cases lack accepted executable semantics; they are counted separately from demonstrated inequivalence.}
+\label{tab:corpus}
+\end{table}
+
+\subsection{The evidence layers produced different decisions}
+EqTrace matched \ExpectedMatches{} of \CorpusCases{} authored expectations. It accepted \ValidCases{} valid cases and produced no strict pass among the \InvalidCases{} invalid or unsupported cases. These counts describe the provided fixtures. They do not establish sensitivity or specificity on independent research repositories.
+
+Two internal ablations exposed why one check is insufficient. The midpoint-only ablation accepted \MidpointFalsePasses{} invalid cases that the combined check rejected. The ordered-structure ablation rejected \StructureFalseRejects{} valid algebraic rewrite. Both ablations reused EqTrace's strict frontends; unavailable results were not credited as detected bugs. They are component comparisons within this prototype, rather than evaluations of external competing systems.
+
+The floating-point cancellation case passed the real-equivalence query and failed the execution comparison. Its implementation added and subtracted $10^{16}$ around a scalar input. The resulting real expression equals that input, while finite-precision evaluation lost information for tested values. This case demonstrates why \texttt{PROVED\_REAL} and execution success occupy separate fields in the receipt.
+
+\subsection{Self-application checks the arithmetic used by the checker}
+The self-application manifest linked Equations~\ref{eq:self-square} and~\ref{eq:self-normalized}, together with Algorithm~\ref{alg:self-normalized}, to functions in the released package. All \SelfContracts{} contracts passed their real-equivalence and sampled execution checks. The normalized discrepancy function is called by the runtime comparison harness. This closes a small paper-to-code-to-evidence cycle within the repository.
+
+The self-application result has a circular trust limitation. The same implementation parses the paper statement, lowers the code, and judges their relationship. A shared translation bug could survive the check. Independent proof-certificate checking, a second frontend implementation, and external fixtures would provide different evidence, and remain future work.
+
+\subsection{Regression and browser checks exercise failure handling}
+The released local test run passed \UnitTests{} tests. Engineering regression cases changed source files, datasets, and outputs after a run; supplied a pre-existing unwritten artifact; imported a module without calling its block function; and declared an incorrect array dimension. Each case required a blocking result. The suite also exercised scalar parsing, domain failures, numerical disagreement, stale receipts, and constrained live comparisons.
+
+Browser checks exercised named flows, cross-codebase block inspection, dataset-to-LaTeX display, observed array shapes, and attached scalar proof evidence. Separate checks exercised equation rendering, merged graph inspection, live mismatch detection, exports, and a narrow viewport. These checks establish selected user-interface behavior on Chromium. They do not establish accessibility conformance or behavior in every browser.
+
+The package also scans its own Python roots into semantic blocks and binds its three local self-contracts to the checker block. This view remains a static architecture observation. The release does not label the entire checker as dynamically covered or mathematically verified.

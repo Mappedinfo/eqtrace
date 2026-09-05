@@ -1,0 +1,20 @@
+[
+  {"id":"exact-square","kind":"valid","formula":"y = x^2","code":"def f(x):\n    return x**2\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"PASS"},
+  {"id":"equivalent-expansion","kind":"valid","formula":"y = (x+1)^2","code":"def f(x):\n    return x*x+2*x+1\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"PASS"},
+  {"id":"explicit-epsilon","kind":"valid","formula":"y = \\frac{x-\\mu}{\\sigma+\\epsilon}","code":"def f(x,mu,sigma,epsilon):\n    return (x-mu)/(sigma+epsilon)\n","inputs":["x","mu","sigma","epsilon"],"domains":{"x":[-2,2],"mu":[-1,1],"sigma":[1,3],"epsilon":[0.01,0.1]},"expected":"PASS"},
+  {"id":"pseudocode-square","kind":"valid","source_kind":"pseudocode","formula":"\\Require $x$\n\\Ensure $y$\n\\State $d \\gets x+1$\n\\State \\Return $d^2$","code":"def f(x):\n    d=x+1\n    return d**2\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"PASS"},
+  {"id":"constant-drift","kind":"formula drift","formula":"y = x^2","code":"def f(x):\n    return x**2+1\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"FAIL"},
+  {"id":"missing-cross-term","kind":"formula drift","formula":"y = (x+1)^2","code":"def f(x):\n    return x*x+1\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"FAIL"},
+  {"id":"ignored-epsilon","kind":"formula drift","formula":"y = \\frac{x-\\mu}{\\sigma+\\epsilon}","code":"def f(x,mu,sigma,epsilon):\n    return (x-mu)/sigma\n","inputs":["x","mu","sigma","epsilon"],"domains":{"x":[-2,2],"mu":[-1,1],"sigma":[1,3],"epsilon":[0.01,0.1]},"expected":"FAIL"},
+  {"id":"identity-for-square","kind":"formula drift","formula":"y = x^2","code":"def f(x):\n    # TODO implement the equation\n    return x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"FAIL"},
+  {"id":"hidden-fallback","kind":"unsupported path","formula":"y = x^2","code":"def f(x):\n    try:\n        return x*x\n    except Exception:\n        return x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"commented-plan","kind":"unsupported path","formula":"y = x^2","code":"def f(x):\n    # The plan is x squared.\n    pass\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"discarded-computation","kind":"unsupported path","formula":"y = x^2","code":"def f(x):\n    y=x*x\n    return x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"unknown-equation","kind":"unsupported syntax","formula":"y = \\sum_{i=1}^{3} x_i","code":"def f(x):\n    return x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"missing-implementation","kind":"missing source","formula":"y = x^2","code":"def other(x):\n    return x*x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"division-domain-hole","kind":"domain failure","formula":"y = x/x","code":"def f(x):\n    return 1\n","inputs":["x"],"domains":{"x":[-1,1]},"expected":"FAIL"},
+  {"id":"vacuous-domain","kind":"domain failure","formula":"y = x","code":"def f(x):\n    return x\n","inputs":["x"],"domains":{"x":[0,0]},"nonzero":["x"],"expected":"FAIL"},
+  {"id":"float-cancellation","kind":"numeric divergence","formula":"y = x","code":"def f(x):\n    return (x+10000000000000000)-10000000000000000\n","inputs":["x"],"domains":{"x":[-1,1]},"expected":"FAIL"},
+  {"id":"unmodeled-call","kind":"unsupported path","formula":"y = x^2","code":"def f(x):\n    return alternate_backend(x)\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"},
+  {"id":"pseudocode-branch","kind":"unsupported path","source_kind":"pseudocode","formula":"\\Require $x$\n\\If{$x>0$}\n\\State \\Return $x$\n\\EndIf","code":"def f(x):\n    return x\n","inputs":["x"],"domains":{"x":[-2,2]},"expected":"BLOCKED"}
+]

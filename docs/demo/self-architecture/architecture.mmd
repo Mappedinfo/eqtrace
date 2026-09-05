@@ -1,0 +1,20 @@
+flowchart LR
+  sources["Independent paper and code"]
+  expression["Ordered scalar expression"]
+  verdict["Separate check results"]
+  project["Codebase and dataset roots"]
+  observations["Source and runtime evidence"]
+  workbench["Interactive review artifacts"]
+  frontends["Strict scalar frontends"]
+  checker["Equation consistency checks"]
+  engineering["Engineering observations"]
+  review["Review and command interface"]
+  sources -->|consumes| frontends
+  frontends -->|produces| expression
+  expression -->|consumes| checker
+  checker -->|produces| verdict
+  project -->|consumes| engineering
+  engineering -->|produces| observations
+  verdict -->|consumes| review
+  observations -->|consumes| review
+  review -->|produces| workbench

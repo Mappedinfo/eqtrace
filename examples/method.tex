@@ -1,0 +1,27 @@
+% Selected displays are bound by label; no special equation macros are needed.
+\begin{equation}
+\label{eq:weighted}
+y = \alpha x + (1 - \alpha) z
+\end{equation}
+
+\begin{equation}
+\label{eq:expanded}
+y = (x + 1)^2
+\end{equation}
+
+\begin{equation}
+\label{eq:normalize}
+y = \frac{x - \mu}{\sigma + \epsilon}
+\end{equation}
+
+\begin{algorithm}
+\caption{Normalize with an explicit denominator}
+\label{alg:normalize}
+\begin{algorithmic}
+\Require $x, \mu, \sigma, \epsilon$
+\Ensure $y$
+\State $d \gets x - \mu$
+\State $s \gets \sigma + \epsilon$
+\State \Return $\frac{d}{s}$
+\end{algorithmic}
+\end{algorithm}

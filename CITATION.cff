@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Please cite the EqTrace software technical report when using this prototype."
+title: "EqTrace: Inspectable Contracts between Papers, Code, and Execution"
+authors:
+  - family-names: Wang
+    given-names: Shiqi
+version: 0.1.0
+date-released: 2026-09-05
+license: MIT
+url: https://github.com/Mappedinfo/eqtrace
+repository-code: https://github.com/Mappedinfo/eqtrace
+type: software
+abstract: "A local prototype linking LaTeX equations and pseudocode to executable scalar contracts within multi-codebase engineering graphs, dataset summaries, and recorded run evidence."

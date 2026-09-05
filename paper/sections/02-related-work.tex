@@ -1,2 +1,7 @@
-\section{Related Work}
-只写与本文定位直接相关的工作；全面综述另起文献综述文档。
+\section{Related work}
+\label{sec:related}
+Executable mathematical languages establish a direct path from notation to implementation. I Heart LA defines a compilable language resembling conventional linear algebra and targets LaTeX, Python, C++, and MATLAB \citep{LiIHeartLA2021}. HeartDown extends this direction to scientific documents, executable formulas, and dynamic figures \citep{LiHeartDown2022}. These systems motivate a shared semantic representation. EqTrace uses a smaller scalar language to compare existing sources and retain disagreements as reviewable artifacts. We make no novelty claim for equation-to-code generation itself.
+
+Proof assistants provide a stronger certificate boundary than this prototype. Lean is a programming language and theorem prover supporting formalized mathematics and verification \citep{DeMouraLean2021}. Prove2Me organizes collaborative formalization missions whose results are checked in Lean \citep{ChenProve2Me2026}. Its platform documents kernel checking, axiom restrictions, and pinned environments \citep{Prove2MeAbout2026}. EqTrace borrows the emphasis on explicit trust and reproducibility. Its Z3 results depend on the implemented translation and solver, and are reported separately from runtime observations.
+
+Source visualization answers a different class of review questions. The code2flow project constructs approximate call graphs for dynamic languages \citep{RogowskiCode2flow2026}. Such graphs help locate relationships between functions. EqTrace instead represents the scalar operations of a bound computation, merges equal subexpressions, and attaches source locations and verification records. Local inspection of LLM visualization projects informed the linked-node interface and the separation between semantic data and rendering; their code was not incorporated.

@@ -1,0 +1,12 @@
+schema_version = 1
+title = "vacuous-domain"
+paper_sources = ["paper.tex"]
+[[contracts]]
+implementation = "implementation.py"
+id = "vacuous-domain"
+label = "eq:vacuous-domain"
+function = "f"
+inputs = ["x"]
+domains = { "x" = [0, 0] }
+nonzero = ["x"]
+policy = "algebraic"

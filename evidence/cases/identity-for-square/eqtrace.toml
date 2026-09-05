@@ -1,0 +1,12 @@
+schema_version = 1
+title = "identity-for-square"
+paper_sources = ["paper.tex"]
+[[contracts]]
+implementation = "implementation.py"
+id = "identity-for-square"
+label = "eq:identity-for-square"
+function = "f"
+inputs = ["x"]
+domains = { "x" = [-2, 2] }
+nonzero = []
+policy = "algebraic"

@@ -1,0 +1,4 @@
+inputs x
+t_0 <- (x ** 2)
+return t_0
+

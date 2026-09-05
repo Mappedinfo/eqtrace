@@ -1,0 +1,46 @@
+schema_version = 1
+title = "Paper and implementation, in agreement"
+paper_sources = ["examples/method.tex"]
+samples = 64
+seed = 1729
+tolerance = 1e-10
+
+[[contracts]]
+id = "weighted-mixture"
+label = "eq:weighted"
+description = "A convex combination, with every input and operation preserved."
+implementation = "examples/implementation.py"
+function = "weighted"
+inputs = ["x", "z", "alpha"]
+domains = {x = [-4, 4], z = [-4, 4], alpha = [0, 1]}
+policy = "ordered"
+
+[[contracts]]
+id = "expanded-polynomial"
+label = "eq:expanded"
+description = "Different computation graphs; equal real results on the declared domain."
+implementation = "examples/implementation.py"
+function = "expanded"
+inputs = ["x"]
+domains = {x = [-4, 4]}
+policy = "algebraic"
+
+[[contracts]]
+id = "normalization"
+label = "eq:normalize"
+description = "An explicit epsilon is part of the method and must survive implementation."
+implementation = "examples/implementation.py"
+function = "normalize"
+inputs = ["x", "mu", "sigma", "epsilon"]
+domains = {x = [-4, 4], mu = [-1, 1], sigma = ["1/10", 3], epsilon = ["1/1000", "1/100"]}
+policy = "ordered"
+
+[[contracts]]
+id = "algorithm-normalization"
+label = "alg:normalize"
+description = "LaTeX pseudocode and Python lower to the same computation."
+implementation = "examples/implementation.py"
+function = "normalize"
+inputs = ["x", "mu", "sigma", "epsilon"]
+domains = {x = [-4, 4], mu = [-1, 1], sigma = ["1/10", 3], epsilon = ["1/1000", "1/100"]}
+policy = "ordered"

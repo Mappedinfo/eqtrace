@@ -1,10 +1,16 @@
 [project]
 name = "eqtrace"
 version = "0.1.0"
-description = "Code for: EqTrace: Executable Equation Contracts for Paper-Code Consistency"
+description = "Inspectable contracts between LaTeX, code, datasets, and execution"
+authors = [{name = "Shiqi Wang"}]
+
 requires-python = ">=3.11"
 dependencies = []
 license = "MIT"
+
+[project.urls]
+Repository = "https://github.com/Mappedinfo/eqtrace"
+Documentation = "https://github.com/Mappedinfo/eqtrace#readme"
 
 [project.optional-dependencies]
 proof = ["z3-solver>=4.13,<5"]
@@ -13,6 +19,12 @@ proof = ["z3-solver>=4.13,<5"]
 eqtrace = "eqtrace.cli:main"
 
 [dependency-groups]
+browser = [
+    "playwright>=1.55,<2",
+]
+demo = [
+    "numpy>=2,<3",
+]
 dev = [
   "pytest>=8.4,<9",
 ]

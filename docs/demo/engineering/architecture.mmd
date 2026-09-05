@@ -1,0 +1,36 @@
+flowchart LR
+  sequences["sequences"]
+  prepared["Prepared sequences"]
+  features["Encoded features"]
+  tokens["Embedded tokens"]
+  attended["Attention output"]
+  transformed["Block output"]
+  trained["Trained head checkpoint"]
+  adapted["Adapted head checkpoint"]
+  predictions["Held-out predictions"]
+  metrics["Loss curves and metrics"]
+  preprocess["Data preprocessing"]
+  encoder["Frozen attention encoder"]
+  attention["Self-attention"]
+  feedforward["Feed-forward sub-block"]
+  train-head["Train regression head"]
+  finetune-head["Fine-tune regression head"]
+  evaluate["Held-out evaluation"]
+  sequences -->|consumes| preprocess
+  preprocess -->|produces| prepared
+  prepared -->|consumes| encoder
+  encoder -->|produces| features
+  tokens -->|consumes| attention
+  attention -->|produces| attended
+  attended -->|consumes| feedforward
+  feedforward -->|produces| transformed
+  prepared -->|consumes| train-head
+  features -->|consumes| train-head
+  train-head -->|produces| trained
+  prepared -->|consumes| finetune-head
+  trained -->|consumes| finetune-head
+  finetune-head -->|produces| adapted
+  prepared -->|consumes| evaluate
+  adapted -->|consumes| evaluate
+  evaluate -->|produces| predictions
+  evaluate -->|produces| metrics

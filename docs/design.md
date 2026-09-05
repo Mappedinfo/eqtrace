@@ -1,58 +1,22 @@
-# MVP contract
+# Architecture and MVP scope
 
-Question: can a small deterministic checker expose disagreement between a labeled
-LaTeX equation and an independently written Python function, without trusting an
-AI summary or requiring authors to formalize their entire software stack?
+EqTrace's question is whether a reviewable, local check can link a paper's method to independently authored source and actual execution without formalizing an entire research software stack at once.
 
-The unit is an equation contract: a label, exact source file, function, ordered
-inputs, closed real intervals, and explicit nonzero assumptions. Both sources
-lower to the same ordered scalar expression representation. Neither source is
-silently overwritten. The manifest binds independently authored sources.
+The implementation has two layers sharing source bindings and reports:
 
-## Acceptance
+1. The engineering layer scans explicit Python codebases and CSV/JSONL datasets. A manifest groups files into hierarchical semantic blocks, declares virtual interfaces, selects named flows, and specifies runs. Bounded runtime instrumentation records calls, lines, array shapes, and declared output write events. The audit checks freshness and observed interfaces.
+2. The scalar layer binds labeled LaTeX equations or straight-line pseudocode to pure Python functions. It lowers both to an ordered expression IR and separately checks structure, real equivalence, and sampled execution. Selected leaves attach to engineering blocks by verified source membership.
 
-1. LaTeX to minimal Python, LaTeX back from Python, and both computation DAGs.
-2. Per-node operation, inputs, stable semantic fingerprint, and source location.
-3. Separate graph comparison, bounded real-equivalence SMT check, and actual
-   CPython execution against the equation interpreter on deterministic samples.
-4. Nonzero exit on mismatch, unsupported syntax, missing source, domain failure,
-   insufficient execution, or unresolved proof when proof is required.
-5. Source, configuration, checker and environment hashes in a verifiable receipt.
-6. Offline HTML workbench with equation/code/graph comparison and evidence export.
-7. A fault-injection corpus and self-application to formulas used by this package.
+The offline workbenches and JSON outputs are views of those reports. Human or AI explanations do not generate evidence states. The live equation editor checks temporary pairs through the same checker.
 
-## Frozen scope
+## Acceptance demonstrated by this repository
 
-Scalar real inputs; exact decimal/rational constants; ordered +, -, *, /; literal
-integer powers of absolute value at most 8; sqrt, exp, log. Python is straight-line
-assignments and one final return. General modules are not imported. No loops,
-branches, exception handlers, decorators, dynamic dispatch, tensor kernels, I/O,
-or silent fallback. Each rejection names the node and location. Elementary
-functions are executable but outside the first SMT backend. No Lean proof claim.
+- Bidirectional minimal Python, LaTeX, pseudocode, SVG/Mermaid/JSON computation graphs.
+- Ordered operation and source-location inspection without auto-overwriting inputs.
+- Real-domain proof, numeric execution, and provenance as distinct fields.
+- Multi-file blocks across codebases, nested blocks, virtual interfaces, and multiple flows.
+- Observed dataset-to-LaTeX summaries and required-run freshness checks.
+- Synthetic sequence preprocessing, frozen attention, regression-head training/adaptation, and evaluation.
+- Authored fault corpus, focused regression tests, browser checks, and self-application.
 
-The Z3 backend checks satisfiable assumptions, totality of every division, and
-absence of an unequal result over the declared real domain. An UNSAT result is
-solver evidence relative to our translation and Z3; it is not a Lean certificate
-and does not certify IEEE floating-point behavior. Numeric runs remain separate.
-
-## Comparisons and limits
-
-Baseline 1: a single example test. Baseline 2: ordered graph identity. EqTrace:
-graph + SMT + deterministic runtime samples + strict rejection + provenance.
-Measure classifications on authored fixtures, retain every per-case result, and
-record wall time. No claims about real-world bug prevalence or general Python.
-Self-application covers small score/error kernels; it does not establish the
-correctness of the parsers or the checker that checks those kernels.
-
-## References and inspiration
-
-- Prove2Me and Lean: explicit trust boundary and pinned evidence.
-- I Heart LA and HeartDown: existing equation-to-code/document systems; EqTrace's
-  MVP focuses on independently authored sources and a CI merge check.
-- code2flow: call-graph visualization is a different level of abstraction.
-- Mappedinfo/llm-viz: calculation-linked inspection.
-- Mappedinfo/llm-architecture-svg: semantic data separated from rendering.
-
-No code copied from the visualization projects. The local Research MCP freshness
-verdict was unknown (full-text version unverified); related-work support uses
-verified public primary sources instead of local retrieval claims.
+See [trust.md](trust.md) for boundaries. The next research step is an independent multi-project evaluation and selected tensor/operator contracts. Generic whole-program verification, automatic scientific meaning inference, Lean certification, GPU tracing, and collaborative hosted editing are outside this release.

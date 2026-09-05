@@ -1,0 +1,12 @@
+schema_version = 1
+title = "division-domain-hole"
+paper_sources = ["paper.tex"]
+[[contracts]]
+implementation = "implementation.py"
+id = "division-domain-hole"
+label = "eq:division-domain-hole"
+function = "f"
+inputs = ["x"]
+domains = { "x" = [-1, 1] }
+nonzero = []
+policy = "algebraic"

@@ -9,12 +9,19 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta}
 \usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{csquotes}
 \usepackage{hyperref}
-\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\usepackage[backend=biber,style=apa,natbib=true]{biblatex}
 \addbibresource{references.bib}
+\input{generated/results.tex}
+\input{generated/engineering.tex}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue!50!black}
+\setlength{\emergencystretch}{2em}
 
-\title{ EqTrace: Executable Equation Contracts for Paper-Code Consistency }
-\author{ Shiqi Wang }
+\title{ EqTrace: Inspectable Contracts between Papers, Code, and Execution }
+\author{Shiqi Wang\\\small HKUST(GZ), Urban Governance and Design}
 \date{ 2026-09-05 }
 
 \begin{document}
@@ -28,5 +35,6 @@
 \input{sections/05-discussion}
 \input{sections/06-conclusion}
 
+\clearpage
 \printbibliography
 \end{document}

@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "missing-implementation",
-  "created_at": "2026-09-05T02:50:36.347745+00:00",
+  "created_at": "2026-09-05T02:55:27.389238+00:00",
   "status": "BLOCKED",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -136,16 +136,16 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 1.688,
+  "duration_ms": 2.011,
   "artifacts": {
-    "missing-implementation/reference.py": "65cd5ea87fb85d4649216e3c93ac9d7373e838151269fff2da9333ea647a4355",
+    "missing-implementation/reference.py": "0fa9e05dcbde78a4c2ab8eaefe9dee54838d6187bdeb2581d6efbe98c8890dfb",
     "missing-implementation/equation.graph.json": "ccbf06800b98094f5c64408c01f93cd69e361429685830844338859651a1fe16",
     "missing-implementation/equation.mmd": "628e6297cd8be8535712f794c8c6abed7d5ac8a46374e2dc94ecdd0b3f50abf7",
     "missing-implementation/equation.svg": "c42d72a2499849248588a9473a540b106b10a6efead0e18238400e1991241d08"
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "f2f88ddcdedc48281fdc839336017a44ba1f812bbdab1aba73b680b4fa83122b",
+    "payload": "b4baa9889ec8598800902f37063ef5f4296457f64dc707562b75adbe3de37397",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

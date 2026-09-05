@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "root": "n7",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "alpha",
+      "inputs": [],
+      "fingerprint": "ba4529517f122bd921eac9b47cbc8c8e6429b15254d0ef2617fc01571b8a2759",
+      "expression": "alpha",
+      "latex": "\\alpha",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 21
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 12
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "mul",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n1"
+      ],
+      "fingerprint": "7e36c04474f8cc088214c86fa2603971ad23a22d1540c793fe77d14b0031d6a9",
+      "expression": "(alpha * x)",
+      "latex": "\\left(\\alpha \\cdot x\\right)",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 12
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "const",
+      "value": "1",
+      "inputs": [],
+      "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+      "expression": "1",
+      "latex": "1",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 17
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "op": "sub",
+      "value": "",
+      "inputs": [
+        "n3",
+        "n0"
+      ],
+      "fingerprint": "0b13e8804d48cfed814485fdea1a53117b1b0186bfd6a1ebaba4aba8a24667d1",
+      "expression": "(1 - alpha)",
+      "latex": "\\left(1 - \\alpha\\right)",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 19
+        }
+      ]
+    },
+    {
+      "id": "n5",
+      "op": "var",
+      "value": "z",
+      "inputs": [],
+      "fingerprint": "24d87449e4921da5a1391955ef734416e2428e8286e961fdb0a3b28fe292a883",
+      "expression": "z",
+      "latex": "z",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 29
+        }
+      ]
+    },
+    {
+      "id": "n6",
+      "op": "mul",
+      "value": "",
+      "inputs": [
+        "n4",
+        "n5"
+      ],
+      "fingerprint": "346c361833f093e4ee30e453e66f8f2fc44a506176643d81cd21012e9a9824d3",
+      "expression": "((1 - alpha) * z)",
+      "latex": "\\left(\\left(1 - \\alpha\\right) \\cdot z\\right)",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 29
+        }
+      ]
+    },
+    {
+      "id": "n7",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n2",
+        "n6"
+      ],
+      "fingerprint": "10d99d9d48726745d556dc36a0973c8bdee6dda1a94e1f45622f5a27eef28982",
+      "expression": "((alpha * x) + ((1 - alpha) * z))",
+      "latex": "\\left(\\left(\\alpha \\cdot x\\right) + \\left(\\left(1 - \\alpha\\right) \\cdot z\\right)\\right)",
+      "origins": [
+        {
+          "source": "examples/method.tex",
+          "line": 4,
+          "column": 14
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n2",
+      "slot": 0
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "slot": 1
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "slot": 0
+    },
+    {
+      "from": "n0",
+      "to": "n4",
+      "slot": 1
+    },
+    {
+      "from": "n4",
+      "to": "n6",
+      "slot": 0
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "slot": 1
+    },
+    {
+      "from": "n2",
+      "to": "n7",
+      "slot": 0
+    },
+    {
+      "from": "n6",
+      "to": "n7",
+      "slot": 1
+    }
+  ]
+}

@@ -3,4 +3,3 @@ t_0 <- (x - mu)
 t_1 <- (sigma + epsilon)
 t_2 <- (t_0 / t_1)
 return t_2
-

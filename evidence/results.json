@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-09-05T02:50:36.382503+00:00",
+  "created_at": "2026-09-05T02:55:27.429292+00:00",
   "scope": "Authored synthetic fixtures; not an independently sampled real-world bug benchmark",
   "cases": 18,
   "expectations_met": 18,
@@ -9,7 +9,7 @@
   "midpoint_false_passes": 4,
   "structure_false_rejections_of_valid": 1,
   "total_samples_executed": 640,
-  "total_ms": 178.305,
+  "total_ms": 196.044,
   "environment": {
     "python": "3.13.12",
     "os": "Darwin",
@@ -29,7 +29,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -54,7 +54,7 @@
       "proof": "PROVED_REAL",
       "execution": "PASS",
       "samples_executed": 64,
-      "duration_ms": 27.986,
+      "duration_ms": 34.558,
       "receipt": "evidence/cases/exact-square/run/report.json"
     },
     {
@@ -68,7 +68,7 @@
       "proof": "PROVED_REAL",
       "execution": "PASS",
       "samples_executed": 64,
-      "duration_ms": 7.626,
+      "duration_ms": 8.697,
       "receipt": "evidence/cases/equivalent-expansion/run/report.json"
     },
     {
@@ -82,7 +82,7 @@
       "proof": "PROVED_REAL",
       "execution": "PASS",
       "samples_executed": 64,
-      "duration_ms": 7.814,
+      "duration_ms": 12.667,
       "receipt": "evidence/cases/explicit-epsilon/run/report.json"
     },
     {
@@ -96,7 +96,7 @@
       "proof": "PROVED_REAL",
       "execution": "PASS",
       "samples_executed": 64,
-      "duration_ms": 6.62,
+      "duration_ms": 6.627,
       "receipt": "evidence/cases/pseudocode-square/run/report.json"
     },
     {
@@ -110,7 +110,7 @@
       "proof": "COUNTEREXAMPLE",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 5.809,
+      "duration_ms": 7.246,
       "receipt": "evidence/cases/constant-drift/run/report.json"
     },
     {
@@ -124,7 +124,7 @@
       "proof": "COUNTEREXAMPLE",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 7.001,
+      "duration_ms": 8.211,
       "receipt": "evidence/cases/missing-cross-term/run/report.json"
     },
     {
@@ -138,7 +138,7 @@
       "proof": "COUNTEREXAMPLE",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 10.206,
+      "duration_ms": 14.667,
       "receipt": "evidence/cases/ignored-epsilon/run/report.json"
     },
     {
@@ -152,7 +152,7 @@
       "proof": "COUNTEREXAMPLE",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 6.227,
+      "duration_ms": 8.998,
       "receipt": "evidence/cases/identity-for-square/run/report.json"
     },
     {
@@ -166,7 +166,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.886,
+      "duration_ms": 2.137,
       "receipt": "evidence/cases/hidden-fallback/run/report.json"
     },
     {
@@ -180,7 +180,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 2.087,
+      "duration_ms": 2.077,
       "receipt": "evidence/cases/commented-plan/run/report.json"
     },
     {
@@ -194,7 +194,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.843,
+      "duration_ms": 1.857,
       "receipt": "evidence/cases/discarded-computation/run/report.json"
     },
     {
@@ -208,7 +208,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.634,
+      "duration_ms": 2.477,
       "receipt": "evidence/cases/unknown-equation/run/report.json"
     },
     {
@@ -222,7 +222,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.688,
+      "duration_ms": 2.011,
       "receipt": "evidence/cases/missing-implementation/run/report.json"
     },
     {
@@ -236,7 +236,7 @@
       "proof": "DOMAIN_ERROR",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 4.394,
+      "duration_ms": 8.834,
       "receipt": "evidence/cases/division-domain-hole/run/report.json"
     },
     {
@@ -250,7 +250,7 @@
       "proof": "INVALID_DOMAIN",
       "execution": "FAIL",
       "samples_executed": 0,
-      "duration_ms": 5.29,
+      "duration_ms": 5.91,
       "receipt": "evidence/cases/vacuous-domain/run/report.json"
     },
     {
@@ -264,7 +264,7 @@
       "proof": "PROVED_REAL",
       "execution": "FAIL",
       "samples_executed": 64,
-      "duration_ms": 5.785,
+      "duration_ms": 5.388,
       "receipt": "evidence/cases/float-cancellation/run/report.json"
     },
     {
@@ -278,7 +278,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.935,
+      "duration_ms": 2.053,
       "receipt": "evidence/cases/unmodeled-call/run/report.json"
     },
     {
@@ -292,7 +292,7 @@
       "proof": "NOT_RUN",
       "execution": "NOT_RUN",
       "samples_executed": 0,
-      "duration_ms": 1.791,
+      "duration_ms": 1.6,
       "receipt": "evidence/cases/pseudocode-branch/run/report.json"
     }
   ]

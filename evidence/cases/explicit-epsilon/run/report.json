@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "explicit-epsilon",
-  "created_at": "2026-09-05T02:50:36.250396+00:00",
+  "created_at": "2026-09-05T02:55:27.288633+00:00",
   "status": "PASS",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -109,7 +109,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 2.67
+        "duration_ms": 7.055
       },
       "execution": {
         "status": "PASS",
@@ -1238,14 +1238,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 7.814,
+  "duration_ms": 12.667,
   "artifacts": {
-    "explicit-epsilon/reference.py": "92b06555fc52cb5e5311b07708106a670ca6797d91181c6fbdcfb04ce0c11cfe",
-    "explicit-epsilon/lowered.py": "21d2ac97b53e8c03cbc369e43f3c98d6e14c55d110cf3753e0ac6ab290e0d010",
+    "explicit-epsilon/reference.py": "a77ecfa4d2fd223855011a0dbdd4a99263e5a0b180843ff0b8cdd4a79dc1b564",
+    "explicit-epsilon/lowered.py": "ae49caef94e83c3189a068eb8be687042b62f04d3ec6bbfa9a594b88fb1d01dc",
     "explicit-epsilon/from-code.tex": "93ca80eb15cfe30bd7842138342fba122e565d8f54b3d7468b4a5cb13e3749f7",
-    "explicit-epsilon/from-code.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
-    "explicit-epsilon/from-code.algorithmic.tex": "7f176787a517e40b52d4302759d084991685c33858ce857c15bef710cc16490e",
-    "explicit-epsilon/from-paper.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
+    "explicit-epsilon/from-code.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
+    "explicit-epsilon/from-code.algorithmic.tex": "b58191a384be6c62708f6f1d1028f10788014292746028b30f960e203fc50e04",
+    "explicit-epsilon/from-paper.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
     "explicit-epsilon/equation.graph.json": "636248f45a5ed6b9455f3f1c7305e84e7b34a2b2cbdbf654def28cd80ffd4876",
     "explicit-epsilon/equation.mmd": "6c281ce48128735b41e0b1a5f2739fc7ddbfb18a40c1b85f169a2e087501cd2c",
     "explicit-epsilon/equation.svg": "eaea69a9a67731dec80859a9d51b1df14477a130dcb57c490833312ffeec506c",
@@ -1258,7 +1258,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "601003a619280bc936f57b84dadd801d9dfc0d99b4819682c23a90054e9fecca",
+    "payload": "9bce7856b1c573a391e55f90f4d9a387312d4f3ace83fc109edd859bb821dc7b",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

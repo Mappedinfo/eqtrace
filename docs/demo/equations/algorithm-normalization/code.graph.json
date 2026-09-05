@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "root": "n6",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 12,
+          "column": 15
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "var",
+      "value": "mu",
+      "inputs": [],
+      "fingerprint": "d513c0d7d2ec287762ba36afaf8eaa2ebe8a6fb24bffdc17b74367400ccbff95",
+      "expression": "mu",
+      "latex": "\\mu",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 12,
+          "column": 18
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "sub",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n1"
+      ],
+      "fingerprint": "50a90759159d0435721e4675609a2a4de7d00b8170bf427018c7d9f945fa03dc",
+      "expression": "(x - mu)",
+      "latex": "\\left(x - \\mu\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 13,
+          "column": 9
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "var",
+      "value": "sigma",
+      "inputs": [],
+      "fingerprint": "24221a51860686a7c3206fd895849c06fde791f977f7f7c30bf7253e6d6fc9fd",
+      "expression": "sigma",
+      "latex": "\\sigma",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 12,
+          "column": 22
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "op": "var",
+      "value": "epsilon",
+      "inputs": [],
+      "fingerprint": "86927fbae43656fc4d646b7b561280a1c629134d1af443aa7bc842dca9b6ee55",
+      "expression": "epsilon",
+      "latex": "\\epsilon",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 12,
+          "column": 29
+        }
+      ]
+    },
+    {
+      "id": "n5",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n3",
+        "n4"
+      ],
+      "fingerprint": "708ad46202df5e0ec514c173ad60f2f6c3f766b6454663bd97d5a7513127f790",
+      "expression": "(sigma + epsilon)",
+      "latex": "\\left(\\sigma + \\epsilon\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 14,
+          "column": 13
+        }
+      ]
+    },
+    {
+      "id": "n6",
+      "op": "div",
+      "value": "",
+      "inputs": [
+        "n2",
+        "n5"
+      ],
+      "fingerprint": "0199e434a367797b2fb422a2e21fcf93d483a249477de129f0551e851d5c54cf",
+      "expression": "((x - mu) / (sigma + epsilon))",
+      "latex": "\\frac{\\left(x - \\mu\\right)}{\\left(\\sigma + \\epsilon\\right)}",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 15,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n2",
+      "slot": 0
+    },
+    {
+      "from": "n1",
+      "to": "n2",
+      "slot": 1
+    },
+    {
+      "from": "n3",
+      "to": "n5",
+      "slot": 0
+    },
+    {
+      "from": "n4",
+      "to": "n5",
+      "slot": 1
+    },
+    {
+      "from": "n2",
+      "to": "n6",
+      "slot": 0
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "slot": 1
+    }
+  ]
+}

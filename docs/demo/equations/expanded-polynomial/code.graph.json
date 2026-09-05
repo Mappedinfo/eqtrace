@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "root": "n6",
+  "nodes": [
+    {
+      "id": "n0",
+      "op": "var",
+      "value": "x",
+      "inputs": [],
+      "fingerprint": "55af469df2994b56cdd602c839433442c3e15e748e3ead83766ba5c1aed50a64",
+      "expression": "x",
+      "latex": "x",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 8,
+          "column": 14
+        }
+      ]
+    },
+    {
+      "id": "n1",
+      "op": "mul",
+      "value": "",
+      "inputs": [
+        "n0",
+        "n0"
+      ],
+      "fingerprint": "22a9813f1ed1a0e304e816998888416b8bc1218e403846ba5bc1b327354c02ce",
+      "expression": "(x * x)",
+      "latex": "\\left(x \\cdot x\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 12
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "op": "const",
+      "value": "2",
+      "inputs": [],
+      "fingerprint": "f43cd9d84bddc1a835d5d973ded42d2b5b1ad725f011ef9d7cf20162643b4fb0",
+      "expression": "2",
+      "latex": "2",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "op": "mul",
+      "value": "",
+      "inputs": [
+        "n2",
+        "n0"
+      ],
+      "fingerprint": "ccbf58822e482a2e1b35e4d1e28826d8fd6a443138dfbd04ad51759111be64e6",
+      "expression": "(2 * x)",
+      "latex": "\\left(2 \\cdot x\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n1",
+        "n3"
+      ],
+      "fingerprint": "ae2e8dcbd2100d8a81655ec5fca34ad1bd0fcbf220e8cd3ebda187ce060ba81e",
+      "expression": "((x * x) + (2 * x))",
+      "latex": "\\left(\\left(x \\cdot x\\right) + \\left(2 \\cdot x\\right)\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 12
+        }
+      ]
+    },
+    {
+      "id": "n5",
+      "op": "const",
+      "value": "1",
+      "inputs": [],
+      "fingerprint": "7746113a5b19a435383247595ec26d694a798de3613ee4c0e9f5b4648f60dc4c",
+      "expression": "1",
+      "latex": "1",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 28
+        }
+      ]
+    },
+    {
+      "id": "n6",
+      "op": "add",
+      "value": "",
+      "inputs": [
+        "n4",
+        "n5"
+      ],
+      "fingerprint": "33f42579d53a309867fb214f349f7e8761338cf22c8c787aa33f02c9239ad7cd",
+      "expression": "(((x * x) + (2 * x)) + 1)",
+      "latex": "\\left(\\left(\\left(x \\cdot x\\right) + \\left(2 \\cdot x\\right)\\right) + 1\\right)",
+      "origins": [
+        {
+          "source": "examples/implementation.py",
+          "line": 9,
+          "column": 12
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 0
+    },
+    {
+      "from": "n0",
+      "to": "n1",
+      "slot": 1
+    },
+    {
+      "from": "n2",
+      "to": "n3",
+      "slot": 0
+    },
+    {
+      "from": "n0",
+      "to": "n3",
+      "slot": 1
+    },
+    {
+      "from": "n1",
+      "to": "n4",
+      "slot": 0
+    },
+    {
+      "from": "n3",
+      "to": "n4",
+      "slot": 1
+    },
+    {
+      "from": "n4",
+      "to": "n6",
+      "slot": 0
+    },
+    {
+      "from": "n5",
+      "to": "n6",
+      "slot": 1
+    }
+  ]
+}

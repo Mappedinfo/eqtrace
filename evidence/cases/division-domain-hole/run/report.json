@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "division-domain-hole",
-  "created_at": "2026-09-05T02:50:36.350889+00:00",
+  "created_at": "2026-09-05T02:55:27.392945+00:00",
   "status": "FAIL",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -91,7 +91,7 @@
         "witness": {
           "x": "0"
         },
-        "duration_ms": 1.455
+        "duration_ms": 1.722
       },
       "execution": {
         "status": "FAIL",
@@ -797,14 +797,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 4.394,
+  "duration_ms": 8.834,
   "artifacts": {
-    "division-domain-hole/reference.py": "7a8c0c875d2f762139bfd0c87328494cdfd8d83d5bff4fa9b888bfa3d3729e19",
-    "division-domain-hole/lowered.py": "79edc09cc3d69763683179e0ac4fbd8baa10c158f2893fb4d05811c71329c966",
+    "division-domain-hole/reference.py": "42bb595a32e04ed5c561cd1eb55ed78345e159b4be48ffbe2aaa542cc1786629",
+    "division-domain-hole/lowered.py": "7b8f96f3d5cfd251a24897df21503abff1f3c59a65c51556b45305c235f937ca",
     "division-domain-hole/from-code.tex": "5f545a2400c375b3e6459d5a68906a63362b523c246732b99d2c00c15aa28651",
-    "division-domain-hole/from-code.txt": "0e9b69f1335bc94950adb21498436b0bc323042ac5fbf99a661e26c2ae720e58",
-    "division-domain-hole/from-code.algorithmic.tex": "752cca80f6071707619b1bc4e2d825bf2c3e5145db5a55f893085fc7dce0a866",
-    "division-domain-hole/from-paper.txt": "3411c3591060bd1b17f9ead1efa16cd3d5eb2b3c39149a5dfc26d281b5bab85b",
+    "division-domain-hole/from-code.txt": "0adde3e54009623c4e2299c50692b9db9d75bf132d733c3df4add5fc9813fa1d",
+    "division-domain-hole/from-code.algorithmic.tex": "1d4c284584f2ff01725d4ca5e1054049dbfed0d2467368af4062b7605fe43925",
+    "division-domain-hole/from-paper.txt": "2844c604eea475c15c463bbce3d76152dec9f313f2f6d017f4808011290f3ae8",
     "division-domain-hole/equation.graph.json": "9de4be13af1d90c7477878eda3ee0fbe4d148d79319c569493833a99a07a8b06",
     "division-domain-hole/equation.mmd": "42423c76f137cc4717f1f377ed56ea0d09d89dbb758498a78c8aea6dd800f6e4",
     "division-domain-hole/equation.svg": "a5a89d88c2e62017105fad96ecb526fa9471ed02d8943cd75ddc193f85df88bd",
@@ -816,7 +816,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "36588068c263f1cc751cd0510a3fcea12d5f2e2e71def98056ee2390caa5927c",
+    "payload": "2681c2f1038eca0e2e411059b2a91caa2b314d88167e9e6ac9d07296737664d5",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

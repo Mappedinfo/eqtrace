@@ -1,4 +1,3 @@
 inputs x
 
 return 1
-

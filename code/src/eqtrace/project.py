@@ -169,7 +169,7 @@ def write_report(report: dict, out: Path) -> Path:
     for c in report["contracts"]:
         cid = c["id"]
         for field, name in [("generated_python", "reference.py"), ("minimal_code", "lowered.py"), ("code_latex", "from-code.tex"), ("code_pseudocode", "from-code.txt"), ("code_algorithmic", "from-code.algorithmic.tex"), ("equation_pseudocode", "from-paper.txt")]:
-            if field in c: write(f"{cid}/{name}", c[field] + "\n")
+            if field in c: write(f"{cid}/{name}", c[field].rstrip() + "\n")
         for field, side in [("equation_graph", "equation"), ("code_graph", "code")]:
             if field in c:
                 g = c[field]

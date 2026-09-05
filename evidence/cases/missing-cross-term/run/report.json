@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "missing-cross-term",
-  "created_at": "2026-09-05T02:50:36.294058+00:00",
+  "created_at": "2026-09-05T02:55:27.329354+00:00",
   "status": "FAIL",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -96,7 +96,7 @@
         "witness": {
           "x": "1"
         },
-        "duration_ms": 2.838
+        "duration_ms": 4.11
       },
       "execution": {
         "status": "FAIL",
@@ -976,14 +976,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 7.001,
+  "duration_ms": 8.211,
   "artifacts": {
-    "missing-cross-term/reference.py": "d5a5e9cc96dc11c61aff50939cd9deeca82f2b3783c4f0190ab066e63af8e2d6",
-    "missing-cross-term/lowered.py": "1d88e66e8c1e8682713aa92336c99c9fa2a88bb57ba4b1d98a0896b6972e39a8",
+    "missing-cross-term/reference.py": "26b6655894ca7e34fd644bb30ecd925947414e1f678ba743877cb2ddc56f9a91",
+    "missing-cross-term/lowered.py": "0993085259546196505afcbe6264ac0a336b8648105d61daf38a00f849b27c61",
     "missing-cross-term/from-code.tex": "84fadf403da80468c6925b8b43e9dfb87d53faf95c849f091822fcf6e03eacd6",
-    "missing-cross-term/from-code.txt": "00ed240d6bf0e9b9600ef5a5f30345573d1e610ec77c708d6ac936f15ac675aa",
-    "missing-cross-term/from-code.algorithmic.tex": "1521ec792e8ed725f32b092a027c0d045b27bc1884991348965cb52cbf08f64c",
-    "missing-cross-term/from-paper.txt": "f11a76834c55054632ccc5e3b7216ceb007bb0aedf9b3b1beaaaf66b637bd079",
+    "missing-cross-term/from-code.txt": "2325a377b810f9ee5458735fdb21ae1ce69cbe0597f7853f4304e91479a993d4",
+    "missing-cross-term/from-code.algorithmic.tex": "fb96f6ea82b9890453671812bbf04e2e8956baacbaba7719aa13645bb56a101a",
+    "missing-cross-term/from-paper.txt": "d9c4a18245821cc66627ff5feb10711218de8cb7fef481d5673c3150a296cdce",
     "missing-cross-term/equation.graph.json": "877ca29185ef001376b8b9ba3884b6c0f929c048da26c9bfcd527a7950c85897",
     "missing-cross-term/equation.mmd": "c92cef476e43e4a15ceb6c1ef6e24382d1fb7e73f27b427e7dc8cbff798888a7",
     "missing-cross-term/equation.svg": "8a12471cebbdabfe4b477aca624c4c881e8892a582078bade6fb609fec7b1a59",
@@ -996,7 +996,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "5fec2553f9fd4f0116e54e83f1c59d0dfcad3bbc86134b5af5a9dbb126fbe902",
+    "payload": "02a63f0b78157ce5a105e316cb1dce652cba160a509e6959c12cb29573686005",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "float-cancellation",
-  "created_at": "2026-09-05T02:50:36.366602+00:00",
+  "created_at": "2026-09-05T02:55:27.414270+00:00",
   "status": "FAIL",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -91,7 +91,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 1.603
+        "duration_ms": 1.917
       },
       "execution": {
         "status": "FAIL",
@@ -907,14 +907,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 5.785,
+  "duration_ms": 5.388,
   "artifacts": {
-    "float-cancellation/reference.py": "ceee58dc6f4e653c961da01a2ca01d1de60373b3aa9c29d876c4dbf38f917172",
-    "float-cancellation/lowered.py": "5eeffd352689a35b684936a5c454fc33bb4b6fe9fa4b3f43b7308f3484dc6832",
+    "float-cancellation/reference.py": "0c8b7c816b5a349f85cdf382bbfd2ce968221cc27c535442144192cedb7460f4",
+    "float-cancellation/lowered.py": "dc2e22dd226b6375af7327e18e8061ec53eb4e4b195f646db05c9064eccc02af",
     "float-cancellation/from-code.tex": "adfd159575bfa90d2e6d111acb3e8f7ff67d0953e2c1d90b8cb19e21d3cc5b41",
-    "float-cancellation/from-code.txt": "e08cbdb47bbef593300232a0d3b653aa199ed95bd0c6bffd486717a7bfdb566d",
-    "float-cancellation/from-code.algorithmic.tex": "1dde8c273c2b10a1fd7c9c86d975fbc39c3c09c70b02d4c7ab4db13788b61fd6",
-    "float-cancellation/from-paper.txt": "5557ad5abd6593327a3ec94e127e4fb7ebc0ba259764d9593db2f623706e11b8",
+    "float-cancellation/from-code.txt": "49316034c5d59e7bef9950e70b6091a8b9d82beb1dbcdfb76e3f9cd007804178",
+    "float-cancellation/from-code.algorithmic.tex": "7c0db3904ea6a07aa5d2e9ae33e4d560cc5a7977c4d16b7dcb6a6467665edb1c",
+    "float-cancellation/from-paper.txt": "b9106f4e107fb19924827ab91d94b4c8749f9fef8f75c6852c4c24ed7feeed50",
     "float-cancellation/equation.graph.json": "2984e9616c6612f53f7bb707eac7f16b465ade875d5a33b77f7af36f93839573",
     "float-cancellation/equation.mmd": "b7f421e25a519f1413a5399b620aa15c11a020dc750253f17e9aaf52a684ce17",
     "float-cancellation/equation.svg": "938e726a1ce468b1cbe28a89120da2cc2c1401ab4af6f1994f0a67c43c428d64",
@@ -927,7 +927,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "1f33b600cd6e6e35447e784d4b123edc4cfe936a90c9f38235fa480ee16ed726",
+    "payload": "af7a8254f36d4319edbff247d9704cfb409fce3d18644e84a6999abebc023537",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

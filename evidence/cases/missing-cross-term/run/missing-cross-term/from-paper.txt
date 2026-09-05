@@ -2,4 +2,3 @@ inputs x
 t_0 <- (x + 1)
 t_1 <- (t_0 ** 2)
 return t_1
-

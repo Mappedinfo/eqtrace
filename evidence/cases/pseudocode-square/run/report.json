@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "pseudocode-square",
-  "created_at": "2026-09-05T02:50:36.263704+00:00",
+  "created_at": "2026-09-05T02:55:27.306380+00:00",
   "status": "PASS",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -91,7 +91,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 1.657
+        "duration_ms": 2.236
       },
       "execution": {
         "status": "PASS",
@@ -894,14 +894,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 6.62,
+  "duration_ms": 6.627,
   "artifacts": {
-    "pseudocode-square/reference.py": "7f18b42e5146dc589eac6a3282da4dc2fd29e01070f73c1925f7811fe64aedbc",
-    "pseudocode-square/lowered.py": "8d69a813c26830138ca4ce5bbc0e0f572070db1b37efb426594a6b233ba6e5cb",
+    "pseudocode-square/reference.py": "a4adfba43302ada8b67649b8c5b917a66914913d1609468b4cba60b173d918cb",
+    "pseudocode-square/lowered.py": "1858c665c24cd424626d33dbf7998e8ef1ea4ef422b26d7fc968e0b7beed1ebb",
     "pseudocode-square/from-code.tex": "260a2249143e6f75e10f7ef3e83dce2608a0e45c427120e351ac388ed2afabff",
-    "pseudocode-square/from-code.txt": "f11a76834c55054632ccc5e3b7216ceb007bb0aedf9b3b1beaaaf66b637bd079",
-    "pseudocode-square/from-code.algorithmic.tex": "7746bfb71154207cf7da10735e600847281231e5c640b2fd60cea8bfec09ccab",
-    "pseudocode-square/from-paper.txt": "f11a76834c55054632ccc5e3b7216ceb007bb0aedf9b3b1beaaaf66b637bd079",
+    "pseudocode-square/from-code.txt": "d9c4a18245821cc66627ff5feb10711218de8cb7fef481d5673c3150a296cdce",
+    "pseudocode-square/from-code.algorithmic.tex": "30fd93b8167615c67c2019343d9180d16c789ada7d5062b463f177b929fb99a2",
+    "pseudocode-square/from-paper.txt": "d9c4a18245821cc66627ff5feb10711218de8cb7fef481d5673c3150a296cdce",
     "pseudocode-square/equation.graph.json": "c173410a40f7bb1f1aacbe22d942c62c5356f0688c81c13873e66bb2109047a3",
     "pseudocode-square/equation.mmd": "c92cef476e43e4a15ceb6c1ef6e24382d1fb7e73f27b427e7dc8cbff798888a7",
     "pseudocode-square/equation.svg": "8a12471cebbdabfe4b477aca624c4c881e8892a582078bade6fb609fec7b1a59",
@@ -914,7 +914,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "30a2b4aea69e03d992a20727c6e479fe2616a6d96cfce804b8fd676db77cfc65",
+    "payload": "5d890d7ae506f1d3e48c55fcbd94fd916e65d51a10b5675165732da1bb72cf44",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

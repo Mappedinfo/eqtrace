@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "Paper and implementation, in agreement",
-  "created_at": "2026-09-05T02:50:35.860658+00:00",
+  "created_at": "2026-09-05T02:55:26.754745+00:00",
   "status": "PASS",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -103,7 +103,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 25.373
+        "duration_ms": 33.098
       },
       "execution": {
         "status": "PASS",
@@ -1268,7 +1268,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 3.28
+        "duration_ms": 5.362
       },
       "execution": {
         "status": "PASS",
@@ -2214,7 +2214,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 7.454
+        "duration_ms": 4.278
       },
       "execution": {
         "status": "PASS",
@@ -3398,7 +3398,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 2.329
+        "duration_ms": 3.749
       },
       "execution": {
         "status": "PASS",
@@ -4527,14 +4527,14 @@
     "bound": 4,
     "excluded": []
   },
-  "duration_ms": 55.859,
+  "duration_ms": 70.661,
   "artifacts": {
-    "weighted-mixture/reference.py": "85f59daceb3e302ccb30adc11baf36d812463d4f4e8a2f2bf0b87e0c63276bb8",
-    "weighted-mixture/lowered.py": "b5d58bdd8c990e93ef80c96b40f3d13e64be1bde5dea7c245addd2dbb9ef28bb",
+    "weighted-mixture/reference.py": "4406e1a5eae51a110cfc79ea7beda3d97af4425d5eb05e1a351e0fe6cce314e9",
+    "weighted-mixture/lowered.py": "c7c51b62f4a2104699f8d3a120c1de4408034afc7171e764bcac3169557a907e",
     "weighted-mixture/from-code.tex": "e7b5625a8f8dc6ff7736f78baf76de5b14c5a6a6b384080881344b97cca3b393",
-    "weighted-mixture/from-code.txt": "b6b2267be1539a8644067366628bd457beeee97b1dc837936518b595e1810717",
-    "weighted-mixture/from-code.algorithmic.tex": "a855114cd87a0e1e16961ddc236083d5fb2fecc4ea5d229bab7215ddfd438206",
-    "weighted-mixture/from-paper.txt": "b6b2267be1539a8644067366628bd457beeee97b1dc837936518b595e1810717",
+    "weighted-mixture/from-code.txt": "61e400c5c9e24c655ed5510f5070a4e929904ca46741ec92318c4ab69553bb88",
+    "weighted-mixture/from-code.algorithmic.tex": "d1b32f213fff574d8d352066325afbb70892ab66d2f7ce0a5681ea0d145c4275",
+    "weighted-mixture/from-paper.txt": "61e400c5c9e24c655ed5510f5070a4e929904ca46741ec92318c4ab69553bb88",
     "weighted-mixture/equation.graph.json": "32f04e1834c72dca2d82cfd8cd4ae2b64e65e1b15b0145547e3a5ef840c75acc",
     "weighted-mixture/equation.mmd": "6187ec263727a614c7d92c03a8a79c8909e0ddaf1273fef3d56abd8012294f63",
     "weighted-mixture/equation.svg": "d90d0b04be75ba6460cd06d834372960a6990f295afcd9adcf9cf1a01eef1e25",
@@ -4544,12 +4544,12 @@
     "weighted-mixture/nonempty_domain.smt2": "afc29a9e95901da6afb8f1075733458c65b792e5a00617e323d37ba5db82ff3a",
     "weighted-mixture/totality.smt2": "7810af138c0b0907e32b61c2ff16377795b74db92ca8f76427ab3c82813fa854",
     "weighted-mixture/equivalence.smt2": "fa863fc1cba021b1fed0b9c74b4cf1d8a9e4dae918ec8420e29dc87972fab5db",
-    "expanded-polynomial/reference.py": "31f670be4a8999dc2d866a24469931351f502100905e7fe3e94760123e598b00",
-    "expanded-polynomial/lowered.py": "d3ec7f1fa8b311b03379459eb981278493b807e05d579c8a4a4f29303f67ea99",
+    "expanded-polynomial/reference.py": "18ae1be2375cd93caaed23d85525644fc3736932c247acd1d201261b2c05125f",
+    "expanded-polynomial/lowered.py": "cbac112027f7c62e94ed7177a5c8d4eda964d25ec2c3339db28c834eb1500ff9",
     "expanded-polynomial/from-code.tex": "8551e475ca40485222b3f9600c2519ec9bd4abddf6f28274a9bcbdd9e70a87bc",
-    "expanded-polynomial/from-code.txt": "f2c27aa2a0f94471c36cc24207a511c1128333a9f5030b39482883a03ef20715",
-    "expanded-polynomial/from-code.algorithmic.tex": "b7b9ca657dd7c3080813d1fd86ecb74d79bca0f54e400dff202a68e8d3603891",
-    "expanded-polynomial/from-paper.txt": "f11a76834c55054632ccc5e3b7216ceb007bb0aedf9b3b1beaaaf66b637bd079",
+    "expanded-polynomial/from-code.txt": "8a6f99e95d5ab545713694c24fce7682bc34af8a7535262ecb64a7f6e4f63014",
+    "expanded-polynomial/from-code.algorithmic.tex": "aa1dc438c3c525cca152cfa27c6268a2d103fd7e5524b0d4da2a2a86e7f992a1",
+    "expanded-polynomial/from-paper.txt": "d9c4a18245821cc66627ff5feb10711218de8cb7fef481d5673c3150a296cdce",
     "expanded-polynomial/equation.graph.json": "3409deb4ba56f7e24a6e70c6dfc2e4b1d6e7fb6cc4926fa4106d3d6b724bbbe1",
     "expanded-polynomial/equation.mmd": "c92cef476e43e4a15ceb6c1ef6e24382d1fb7e73f27b427e7dc8cbff798888a7",
     "expanded-polynomial/equation.svg": "8a12471cebbdabfe4b477aca624c4c881e8892a582078bade6fb609fec7b1a59",
@@ -4559,12 +4559,12 @@
     "expanded-polynomial/nonempty_domain.smt2": "6adbfd118d4cb61956ef89f4e5e76fe1a2219394583361a96b13de4d08d6e053",
     "expanded-polynomial/totality.smt2": "09b18e185eb9eff248c01e00442fabf758d21a48113708871df7c235455c2f97",
     "expanded-polynomial/equivalence.smt2": "d83971ae3434112bd379f74a7f80f1d0f1c190c408071113556250e3bc65e655",
-    "normalization/reference.py": "2a9766b55f417ddc813de9002af9fa3ea930e5ff3ac77f63d20a414d5702e514",
-    "normalization/lowered.py": "8e3788f2dc415a57006d5464691e7766c32eeb303dcf14806cd204a2ac3a30a6",
+    "normalization/reference.py": "849f180ddbca1a6f2e5acd7242de4def8f68f574b91d495cd6e698706118e189",
+    "normalization/lowered.py": "d46a7f22bba2758c98dc247ce1a3a79a9c89644ebd111c209d80b65cbb95a081",
     "normalization/from-code.tex": "93ca80eb15cfe30bd7842138342fba122e565d8f54b3d7468b4a5cb13e3749f7",
-    "normalization/from-code.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
-    "normalization/from-code.algorithmic.tex": "7f176787a517e40b52d4302759d084991685c33858ce857c15bef710cc16490e",
-    "normalization/from-paper.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
+    "normalization/from-code.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
+    "normalization/from-code.algorithmic.tex": "b58191a384be6c62708f6f1d1028f10788014292746028b30f960e203fc50e04",
+    "normalization/from-paper.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
     "normalization/equation.graph.json": "f4d05ffe892f4fdbb76ad68bddec000f41d9e7e34070bc8cd3f8c08adca9e32a",
     "normalization/equation.mmd": "6c281ce48128735b41e0b1a5f2739fc7ddbfb18a40c1b85f169a2e087501cd2c",
     "normalization/equation.svg": "eaea69a9a67731dec80859a9d51b1df14477a130dcb57c490833312ffeec506c",
@@ -4574,12 +4574,12 @@
     "normalization/nonempty_domain.smt2": "eb0e1847e6ec28aa28c01f3854edcfdbd281faafd45436ba685c2051adeb4b5f",
     "normalization/totality.smt2": "6ed411c75a94244ba9f698d0ea5987555f26e97b4a85fd2386a7e6fe8d11a7f5",
     "normalization/equivalence.smt2": "211c1f8a013da4a4d38e3240b5bc912970d35fd680ff803b5aff5472a9271962",
-    "algorithm-normalization/reference.py": "bd97c6916c256362f35634ebebb6687f357de6702499bacf172198baf9e05196",
-    "algorithm-normalization/lowered.py": "b47d042d2b95350a2fdbd9341a01b95559819b746855f1f1cf01a8d519f130b1",
+    "algorithm-normalization/reference.py": "9b777e11067fb32a5f38cca90d6765af2125700cbb030a9dc6207d93e165eb19",
+    "algorithm-normalization/lowered.py": "812de6354b31083969c70b2638d2de2183176926abbf423769ba81d0ea5a0a1e",
     "algorithm-normalization/from-code.tex": "93ca80eb15cfe30bd7842138342fba122e565d8f54b3d7468b4a5cb13e3749f7",
-    "algorithm-normalization/from-code.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
-    "algorithm-normalization/from-code.algorithmic.tex": "7f176787a517e40b52d4302759d084991685c33858ce857c15bef710cc16490e",
-    "algorithm-normalization/from-paper.txt": "ac882b574a34bb4504dc10962541afd52b1b3245a41079d59d6b91330a4ae712",
+    "algorithm-normalization/from-code.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
+    "algorithm-normalization/from-code.algorithmic.tex": "b58191a384be6c62708f6f1d1028f10788014292746028b30f960e203fc50e04",
+    "algorithm-normalization/from-paper.txt": "abc11e11b8dd74979e5adc7aa60741d35f40803d2fb84d9b4a31c8eadacef541",
     "algorithm-normalization/equation.graph.json": "cb629cf442e0a9739a12381b85d1600c1bde207775d20678fa44ec911a0c1ac1",
     "algorithm-normalization/equation.mmd": "6c281ce48128735b41e0b1a5f2739fc7ddbfb18a40c1b85f169a2e087501cd2c",
     "algorithm-normalization/equation.svg": "eaea69a9a67731dec80859a9d51b1df14477a130dcb57c490833312ffeec506c",
@@ -4592,7 +4592,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "ed5be2eb54e59b12d09e4869027bfc95df79bf7e68b10122b56700e9197c2810",
+    "payload": "714673e4408b28dae7e6aacc12d2f5fe6f7b2c6751d5709cc789c30f0962ed76",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

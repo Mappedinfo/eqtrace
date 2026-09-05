@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "pseudocode-branch",
-  "created_at": "2026-09-05T02:50:36.379974+00:00",
+  "created_at": "2026-09-05T02:55:27.427029+00:00",
   "status": "BLOCKED",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -23,7 +23,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -82,11 +82,11 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 1.791,
+  "duration_ms": 1.6,
   "artifacts": {},
   "integrity": {
     "algorithm": "sha256",
-    "payload": "4a76f6e638e88aba69c175b459d4399ecc8681696439d68f6de2607354604bfc",
+    "payload": "0380f23bb12d653d35df1e63e382d1447d4cd508c30a9ecc91dc9bd0886029d3",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

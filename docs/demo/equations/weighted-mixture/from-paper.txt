@@ -1,0 +1,6 @@
+inputs x, z, alpha
+t_0 <- (alpha * x)
+t_1 <- (1 - alpha)
+t_2 <- (t_1 * z)
+t_3 <- (t_0 + t_2)
+return t_3

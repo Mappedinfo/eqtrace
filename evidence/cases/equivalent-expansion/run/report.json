@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "equivalent-expansion",
-  "created_at": "2026-09-05T02:50:36.238216+00:00",
+  "created_at": "2026-09-05T02:55:27.274509+00:00",
   "status": "PASS",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -91,7 +91,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 3.424
+        "duration_ms": 4.157
       },
       "execution": {
         "status": "PASS",
@@ -982,14 +982,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 7.626,
+  "duration_ms": 8.697,
   "artifacts": {
-    "equivalent-expansion/reference.py": "978a9770b6f7bf1dfd566ddfed867ebce3f354b941040d7c21d68dcf96014fb4",
-    "equivalent-expansion/lowered.py": "c5e31915349dd682f840fcea846d812ef78a430c5f418a813e9f446987aeaab9",
+    "equivalent-expansion/reference.py": "77120b2ca4a605bb289859915b51bb8c1f3eaf10331bc227ada0a44761d89ea2",
+    "equivalent-expansion/lowered.py": "27a0096806dff6a9127d38dd6b9dcade41fe821b825bc3667f3694a85a049d6e",
     "equivalent-expansion/from-code.tex": "8551e475ca40485222b3f9600c2519ec9bd4abddf6f28274a9bcbdd9e70a87bc",
-    "equivalent-expansion/from-code.txt": "f2c27aa2a0f94471c36cc24207a511c1128333a9f5030b39482883a03ef20715",
-    "equivalent-expansion/from-code.algorithmic.tex": "b7b9ca657dd7c3080813d1fd86ecb74d79bca0f54e400dff202a68e8d3603891",
-    "equivalent-expansion/from-paper.txt": "f11a76834c55054632ccc5e3b7216ceb007bb0aedf9b3b1beaaaf66b637bd079",
+    "equivalent-expansion/from-code.txt": "8a6f99e95d5ab545713694c24fce7682bc34af8a7535262ecb64a7f6e4f63014",
+    "equivalent-expansion/from-code.algorithmic.tex": "aa1dc438c3c525cca152cfa27c6268a2d103fd7e5524b0d4da2a2a86e7f992a1",
+    "equivalent-expansion/from-paper.txt": "d9c4a18245821cc66627ff5feb10711218de8cb7fef481d5673c3150a296cdce",
     "equivalent-expansion/equation.graph.json": "877ca29185ef001376b8b9ba3884b6c0f929c048da26c9bfcd527a7950c85897",
     "equivalent-expansion/equation.mmd": "c92cef476e43e4a15ceb6c1ef6e24382d1fb7e73f27b427e7dc8cbff798888a7",
     "equivalent-expansion/equation.svg": "8a12471cebbdabfe4b477aca624c4c881e8892a582078bade6fb609fec7b1a59",
@@ -1002,7 +1002,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "a2497259e16a8641f697c5a8a9ec7fcf4c50bee1ec175adc71a3103219d93f55",
+    "payload": "488e4adecad90cbd3402e9f755b28590e92a7c289535f39c025759c9021f56a3",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

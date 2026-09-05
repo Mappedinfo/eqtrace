@@ -1,0 +1,2 @@
+# Preserve exact dataset bytes: receipts hash the CSV files.
+*.csv -text whitespace=cr-at-eol

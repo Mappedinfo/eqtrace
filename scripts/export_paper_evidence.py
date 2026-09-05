@@ -50,6 +50,7 @@ def main():
         destination=ROOT/dst;destination.mkdir(parents=True,exist_ok=True)
         for path in (ROOT/src).iterdir():
             if path.is_file():shutil.copy2(path,destination/path.name)
+            elif path.is_dir():shutil.copytree(path,destination/path.name,dirs_exist_ok=True)
     print(json.dumps(values,indent=2))
 
 if __name__=='__main__':main()

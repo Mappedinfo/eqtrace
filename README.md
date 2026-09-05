@@ -3,7 +3,7 @@
 **Inspectable contracts between papers, code, and execution.**
 
 [![Checks](https://github.com/Mappedinfo/eqtrace/actions/workflows/checks.yml/badge.svg)](https://github.com/Mappedinfo/eqtrace/actions/workflows/checks.yml)
-[Technical report (PDF)](paper/eqtrace.pdf) · [LaTeX source](paper/main.tex) · [中文说明](docs/README.zh-CN.md) · [Evidence boundaries](docs/trust.md)
+[Interactive demo](https://mappedinfo.github.io/eqtrace/) · [Technical report (PDF)](paper/eqtrace.pdf) · [LaTeX source](paper/main.tex) · [中文说明](docs/README.zh-CN.md) · [Evidence boundaries](docs/trust.md)
 
 EqTrace connects LaTeX equations and pseudocode to executable code, then places those local contracts inside a project graph of datasets, multi-file blocks, virtual interfaces, and recorded runs. It helps review whether a change still implements the described method.
 

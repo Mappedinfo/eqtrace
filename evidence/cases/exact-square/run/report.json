@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "exact-square",
-  "created_at": "2026-09-05T02:50:36.204761+00:00",
+  "created_at": "2026-09-05T02:55:27.233796+00:00",
   "status": "PASS",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -24,7 +24,7 @@
     "ir.py": "c38a18603bb6ec4dec8656bf876ecf80ff0636f9612cfd51e563802a59b82814",
     "kernels.py": "58e2061353f72154d6df2cf339055c384ed9b4721b3004fc2a4473b44c9cffcf",
     "latex_parser.py": "3d0888ff0ff578cb58ca02697b3462de0f438c51d6f83d4d8b21e893ce9d898b",
-    "project.py": "2b8ceed55efe10473e7c722bf6bcc41864efccf5fb4d9182b95b495ec3413791",
+    "project.py": "80787c239b8e6a95ddb1f3a6f863c2ea8af0271f474de2dcd79628187ca74c75",
     "pseudocode.py": "7a3d95091c9e0e4715b8c8a82b6b0f50b359d195fca99fc2fc64d39e057b4bba",
     "python_parser.py": "f3d3af7713bd26be7272ac278a6d7dd653bee74ea750564bea1946e897fd7132",
     "render.py": "60c86625cd1ed6085d64ac94baf346847e0a7e18ff50eeb3f6c60456c3477610",
@@ -91,7 +91,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 22.982
+        "duration_ms": 28.332
       },
       "execution": {
         "status": "PASS",
@@ -804,14 +804,14 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 27.986,
+  "duration_ms": 34.558,
   "artifacts": {
-    "exact-square/reference.py": "e00cbe50a5271a5704ac01c4862ade087b9fe5b283466c85c1dd575313452fe5",
-    "exact-square/lowered.py": "85cfeea86ecae85f5ad8d13625ca3a573c0dbe15e10fd43b6c75f2179826c35b",
+    "exact-square/reference.py": "74445c3fde042c6b833c0f1368c946d74c47471036c0ccae785837b97c3be596",
+    "exact-square/lowered.py": "4a0e4a95cf83f655b5c42877ce209cc2db044470aef5696fd1d427e894338980",
     "exact-square/from-code.tex": "19e5b0424f618f28c2005fa9d719344578c2bc5aa7d4d944e629649de2a36838",
-    "exact-square/from-code.txt": "aa880987186c0c5b56406aaf66eaa18ff15f4e430be4a7f6947017d9be85c97a",
-    "exact-square/from-code.algorithmic.tex": "045169769678eaee23d3393f8642140db2f3817df2e8ac22935a94b0f2009540",
-    "exact-square/from-paper.txt": "aa880987186c0c5b56406aaf66eaa18ff15f4e430be4a7f6947017d9be85c97a",
+    "exact-square/from-code.txt": "64b14a1bdfba876c4a3566e01cfaa8e44f57da20a6c08b27f6ee579879e7e8b2",
+    "exact-square/from-code.algorithmic.tex": "720464ee44c9a757781b7da1d2f521e2f3892d9a61fbbcc7b5e43029f6a005ca",
+    "exact-square/from-paper.txt": "64b14a1bdfba876c4a3566e01cfaa8e44f57da20a6c08b27f6ee579879e7e8b2",
     "exact-square/equation.graph.json": "ccbf06800b98094f5c64408c01f93cd69e361429685830844338859651a1fe16",
     "exact-square/equation.mmd": "628e6297cd8be8535712f794c8c6abed7d5ac8a46374e2dc94ecdd0b3f50abf7",
     "exact-square/equation.svg": "c42d72a2499849248588a9473a540b106b10a6efead0e18238400e1991241d08",
@@ -824,7 +824,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "ec68a8a256d2e31672af9d347ec32f99cbb51c139c01cfccb84f44296f73769b",
+    "payload": "e086dc94ab1101cc19aec6bd33b36e74e7b38e6e7016dc1db34d6ed4a5d015af",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

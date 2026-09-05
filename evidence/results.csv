@@ -1,19 +1,19 @@
 case,category,expected,observed,expectation_met,midpoint_only,structure_only,proof,execution,samples_executed,duration_ms,receipt
-exact-square,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,27.986,evidence/cases/exact-square/run/report.json
-equivalent-expansion,valid,PASS,PASS,True,PASS,DIFFERENT,PROVED_REAL,PASS,64,7.626,evidence/cases/equivalent-expansion/run/report.json
-explicit-epsilon,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,7.814,evidence/cases/explicit-epsilon/run/report.json
-pseudocode-square,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,6.62,evidence/cases/pseudocode-square/run/report.json
-constant-drift,formula drift,FAIL,FAIL,True,MISMATCH,DIFFERENT,COUNTEREXAMPLE,FAIL,64,5.809,evidence/cases/constant-drift/run/report.json
-missing-cross-term,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,7.001,evidence/cases/missing-cross-term/run/report.json
-ignored-epsilon,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,10.206,evidence/cases/ignored-epsilon/run/report.json
-identity-for-square,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,6.227,evidence/cases/identity-for-square/run/report.json
-hidden-fallback,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.886,evidence/cases/hidden-fallback/run/report.json
-commented-plan,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.087,evidence/cases/commented-plan/run/report.json
-discarded-computation,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.843,evidence/cases/discarded-computation/run/report.json
-unknown-equation,unsupported syntax,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.634,evidence/cases/unknown-equation/run/report.json
-missing-implementation,missing source,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.688,evidence/cases/missing-implementation/run/report.json
-division-domain-hole,domain failure,FAIL,FAIL,True,ERROR,DIFFERENT,DOMAIN_ERROR,FAIL,64,4.394,evidence/cases/division-domain-hole/run/report.json
-vacuous-domain,domain failure,FAIL,FAIL,True,NOT_RUN,IDENTICAL,INVALID_DOMAIN,FAIL,0,5.29,evidence/cases/vacuous-domain/run/report.json
-float-cancellation,numeric divergence,FAIL,FAIL,True,PASS,DIFFERENT,PROVED_REAL,FAIL,64,5.785,evidence/cases/float-cancellation/run/report.json
-unmodeled-call,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.935,evidence/cases/unmodeled-call/run/report.json
-pseudocode-branch,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.791,evidence/cases/pseudocode-branch/run/report.json
+exact-square,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,34.558,evidence/cases/exact-square/run/report.json
+equivalent-expansion,valid,PASS,PASS,True,PASS,DIFFERENT,PROVED_REAL,PASS,64,8.697,evidence/cases/equivalent-expansion/run/report.json
+explicit-epsilon,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,12.667,evidence/cases/explicit-epsilon/run/report.json
+pseudocode-square,valid,PASS,PASS,True,PASS,IDENTICAL,PROVED_REAL,PASS,64,6.627,evidence/cases/pseudocode-square/run/report.json
+constant-drift,formula drift,FAIL,FAIL,True,MISMATCH,DIFFERENT,COUNTEREXAMPLE,FAIL,64,7.246,evidence/cases/constant-drift/run/report.json
+missing-cross-term,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,8.211,evidence/cases/missing-cross-term/run/report.json
+ignored-epsilon,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,14.667,evidence/cases/ignored-epsilon/run/report.json
+identity-for-square,formula drift,FAIL,FAIL,True,PASS,DIFFERENT,COUNTEREXAMPLE,FAIL,64,8.998,evidence/cases/identity-for-square/run/report.json
+hidden-fallback,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.137,evidence/cases/hidden-fallback/run/report.json
+commented-plan,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.077,evidence/cases/commented-plan/run/report.json
+discarded-computation,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.857,evidence/cases/discarded-computation/run/report.json
+unknown-equation,unsupported syntax,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.477,evidence/cases/unknown-equation/run/report.json
+missing-implementation,missing source,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.011,evidence/cases/missing-implementation/run/report.json
+division-domain-hole,domain failure,FAIL,FAIL,True,ERROR,DIFFERENT,DOMAIN_ERROR,FAIL,64,8.834,evidence/cases/division-domain-hole/run/report.json
+vacuous-domain,domain failure,FAIL,FAIL,True,NOT_RUN,IDENTICAL,INVALID_DOMAIN,FAIL,0,5.91,evidence/cases/vacuous-domain/run/report.json
+float-cancellation,numeric divergence,FAIL,FAIL,True,PASS,DIFFERENT,PROVED_REAL,FAIL,64,5.388,evidence/cases/float-cancellation/run/report.json
+unmodeled-call,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,2.053,evidence/cases/unmodeled-call/run/report.json
+pseudocode-branch,unsupported path,BLOCKED,BLOCKED,True,NOT_RUN,NOT_TRANSLATED,NOT_RUN,NOT_RUN,0,1.6,evidence/cases/pseudocode-branch/run/report.json

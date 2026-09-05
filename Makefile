@@ -28,6 +28,7 @@ serve:
 	$(EQ) serve eqtrace.toml
 
 browser:
+	node scripts/check_graph_layout.cjs
 	$(PY) scripts/check_browser.py
 	$(PY) scripts/check_engineering_browser.py
 

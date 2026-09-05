@@ -1,3 +1,32 @@
 .architecture-summary{display:flex;gap:0;border:1px solid var(--line);background:#fff;border-radius:5px;margin:23px 0}.stat{flex:1;padding:15px 19px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-family:Georgia,serif;font-size:25px;font-weight:normal}.stat small{font-size:9px;color:var(--muted);letter-spacing:1px}.flow-controls{display:flex;gap:16px;align-items:center;margin:20px 0;font-size:11px}.flow-controls label{color:var(--muted)}select{padding:8px 11px;border:1px solid var(--line);background:white;border-radius:4px;color:var(--ink);margin-left:7px;font:11px 'Avenir Next',sans-serif;max-width:340px}#flow-note{margin-left:auto;font-size:10px;color:var(--muted)}.engineering-grid{display:grid;grid-template-columns:minmax(0,1fr) 285px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:white;min-height:430px}.engineering-canvas{overflow:auto;background:radial-gradient(#dce5d6 .6px,transparent .7px);background-size:15px 15px;min-height:430px;max-height:690px}.engineering-canvas svg{display:block;min-width:600px;width:100%;height:auto}.inspector{border-left:1px solid var(--line);padding:19px;background:#fafcf7;overflow:auto;max-height:690px;font-size:11px;line-height:1.8}.inspector h3{margin:12px 0}.inspector p{color:#60735e}.inspector code{font-size:10px;overflow-wrap:anywhere}.inspector ul{padding-left:15px}.inspector li{margin:4px 0;overflow-wrap:anywhere}.inspector .badge{display:inline-block;margin:5px 0}.inspector button{font-size:11px;padding:7px 10px;margin-top:10px}.legend{display:flex;gap:20px;font-size:10px;color:var(--muted);padding:15px 0;flex-wrap:wrap}.eng-node{cursor:pointer}.eng-node:hover rect,.eng-node:focus rect{stroke:#25613e;stroke-width:2.5}.eng-node text{pointer-events:none}.boundary{font-size:12px;line-height:1.7;color:var(--muted)}.data-section,.run-section{background:white;border:1px solid var(--line);border-radius:6px;padding:18px 21px;margin:20px 0}.data-section h3,.run-section h3{margin-top:0}.data-section p,.run-section p{font-size:12px;color:var(--muted)}.data-section table,.run-section table{font-size:11px}.dataset-header{display:flex;justify-content:space-between;align-items:center}.data-section details pre{font-size:10px}.evidence-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.evidence-list details{margin:0}#equations-list .notice{font-size:12px}nav button small{font-family:inherit;line-height:1.7}@media(max-width:1150px){.engineering-grid{grid-template-columns:1fr}.inspector{border-left:0;border-top:1px solid var(--line);max-height:350px}.architecture-summary{flex-wrap:wrap}.stat{min-width:100px}.flow-controls{flex-wrap:wrap}#flow-note{margin-left:0}.evidence-list{grid-template-columns:1fr}}@media(max-width:640px){#views{display:block}#views button{padding:9px 12px}.engineering-canvas{max-height:440px}select{max-width:235px}.stat{padding:11px 15px;min-width:90px}main{overflow:hidden}}
 
 .inspector ul{padding-left:0;list-style:none}.inspector li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:4px}.inspector li code{min-width:0}
+
+/* Natural graph dimensions keep labels readable; the viewport provides panning. */
+.engineering-canvas{height:640px;min-height:360px;max-height:640px;cursor:grab;overscroll-behavior:contain;position:relative}
+.engineering-canvas.panning{cursor:grabbing;user-select:none}
+.engineering-canvas svg{min-width:0;max-width:none;width:auto;height:auto;margin:0 auto}
+.graph-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 14px;border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;background:#f2f6ef;font-size:12px}
+.graph-tools + .engineering-grid{border-radius:0 0 6px 6px}
+.graph-tools label{white-space:nowrap}
+.graph-tools select{font-size:12px;max-width:150px;margin-left:4px}
+.graph-tools button{font-size:12px;padding:7px 10px;min-height:34px}
+.graph-tools small{font-size:11px;color:var(--muted)}
+.zoom-controls{display:flex;align-items:center;gap:4px}
+.zoom-controls output{font-variant-numeric:tabular-nums;text-align:center;min-width:43px;font-size:11px}
+.zoom-controls button[data-zoom="in"],.zoom-controls button[data-zoom="out"]{font-size:18px;line-height:16px;min-width:34px}
+#code-count{font-size:12px;color:var(--muted)}
+#code-context{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0 0 14px;font-size:11px;overflow-wrap:anywhere}
+#code-context button{font-size:12px}
+.inspector{max-height:560px;font-size:12px}
+.inspector h3{overflow-wrap:anywhere}
+.inspector button{display:block;margin-top:9px}
+.empty-graph{padding:28px;font-size:13px}
+@media(max-width:1150px){.inspector{max-height:350px}.graph-tools small{flex-basis:100%}}
+@media(max-width:640px){
+  #views{display:flex;gap:6px;margin-top:10px}#views button{min-width:155px;flex:0 0 auto;margin:0}#views button small{display:none}
+  .engineering-canvas{height:480px;max-height:480px;min-height:320px}
+  .graph-tools{gap:8px;padding:10px}.graph-tools label{font-size:11px}.graph-tools select{padding:7px;max-width:130px}
+  .flow-controls{gap:10px;margin:16px 0}.flow-controls label{display:flex;align-items:center;gap:5px}.flow-controls select{margin-left:0;max-width:210px}#code-count{flex-basis:100%}
+  .boundary{font-size:11px}.inspector{padding:16px}.page-title{flex-wrap:wrap}.page-title>.badge{margin:0}.stat{min-width:70px;padding:10px 8px}.stat strong{font-size:23px}.stat small{font-size:8px;letter-spacing:.5px}
+}

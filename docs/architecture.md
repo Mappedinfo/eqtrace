@@ -79,3 +79,22 @@ At manifest root, set `equation_manifests = ["equations.toml"]`. In a block, use
 ## Machine-readable output
 
 `architecture.json` contains `nodes`, `edges`, `code`, `datasets`, `blocks`, `flows`, `runs`, `shape_checks`, `equations`, `errors`, and hashes. Every relationship has an evidence kind or explicit status. `architecture.mmd` and dataset `.tex` files accompany the self-contained HTML. An AI reviewer should cite exact node/file/function IDs and evidence fields, and must not convert a declared meaning or a static candidate into a proof claim.
+
+## Reading the source graph
+
+Source dependencies start at the **Packages** level: files sharing a source
+directory are grouped within their codebase. Arrows point from the importer to
+its dependency; multiple imports between the same groups share a connection.
+These groups are browsing aids, separate from manifest-defined semantic blocks.
+
+Select a package and choose **Open files**. Its direct outgoing dependencies
+remain visible as dashed cards, including dependencies in another codebase.
+**Package overview** returns to the groups. Use **Files** to display the complete
+filtered inventory, or **Focus direct connections** to inspect one node and its
+incoming/outgoing neighbors. Selecting any node highlights those connections.
+
+The bundled Dagre layout places dependencies in layers; connectors turn in the
+gaps between layers. Choose a vertical or horizontal direction, zoom, scroll or
+drag the background, and export the current SVG. Initial zoom preserves readable
+labels; **Fit** explicitly reduces the full graph to the viewport. All operations
+work offline and preserve the underlying evidence report.

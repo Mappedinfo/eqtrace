@@ -4,9 +4,9 @@ Use Python 3.11+ and uv. Run `make setup`, `make test`, and `make demo` before p
 
 Changes to accepted semantics should include a valid case, a meaningful invalid/control case, and any required rejection boundary. Do not turn solver unknowns, unsupported paths, incomplete data, or stale execution evidence into a pass. Preserve the distinction between declared meaning, static candidates, observed execution, real equivalence, and numerical sampling.
 
-The core has no runtime dependencies. Z3 belongs to the explicit `proof` extra. NumPy is a demo dependency; Playwright is a browser-development dependency. Do not introduce external AI calls or credentials into the core path.
+The Python core has no runtime dependencies. Engineering HTML embeds the pinned MIT-licensed Dagre browser bundle and its notices (see `code/src/eqtrace/web/vendor/README.md`). Z3 belongs to the explicit `proof` extra. NumPy is a demo dependency; Playwright is a browser-development dependency. Do not introduce external AI calls or credentials into the core path.
 
-For UI changes, install Chromium with `code/.venv/bin/python -m playwright install chromium`, start `make serve`, and run `make browser`. Inspect the resulting screenshots in `artifacts/browser` and `artifacts/engineering-browser`.
+For UI changes, use Node.js 18+ for the offline geometry checks, install Chromium with `code/.venv/bin/python -m playwright install chromium`, start `make serve`, and run `make browser`. The browser checks cover desktop and 637px layouts, package expansion, focus, zoom, panning, and SVG export. The geometry checks exercise real imports, cycles, isolated nodes, and empty graphs in both directions. Inspect the resulting screenshots in `artifacts/browser` and `artifacts/engineering-browser`.
 
 ## Building the paper
 

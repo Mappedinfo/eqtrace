@@ -23,6 +23,8 @@ make demo
 
 现阶段的数学证明针对受限标量叶子。工程图中的 block 含义来自作者声明；静态候选调用、实际执行和接口形状提供不同层次的证据。全项目语义、任意张量实现和所有输入下的浮点误差仍不在证明范围内。静态扫描可以处理这些工程代码，并显式保留未解析调用。
 
+源码依赖图默认按代码包显示概览，并根据依赖方向自动分层。点击包后选择 **Open files** 可展开文件，跨包依赖会以虚线卡片保留；**Focus direct connections** 聚焦当前节点的直接邻居。支持横向／纵向布局、缩放、画布拖动和 SVG 导出，离线 HTML 也可使用。
+
 [英文使用指南](../README.md) · [工程配置](architecture.md) · [公式语法](equations.md) · [论文 PDF](../paper/eqtrace.pdf)
 
 本项目由 **Shiqi Wang** 以个人业余项目维护，联系邮箱：[qtec@outlook.com](mailto:qtec@outlook.com)。使用本工具进行研究时，可以通过仓库的 **Cite this repository** 获取引用格式。当前尚未注册 DOI；[引用与 Zenodo 归档说明](citing.md)记录了正式归档流程。

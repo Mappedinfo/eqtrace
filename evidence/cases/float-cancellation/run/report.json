@@ -3,7 +3,7 @@
   "tool": "eqtrace",
   "version": "0.1.0",
   "title": "float-cancellation",
-  "created_at": "2026-09-05T02:55:27.414270+00:00",
+  "created_at": "2026-09-05T04:48:57.069699+00:00",
   "status": "FAIL",
   "proof_required": true,
   "manifest": "eqtrace.toml",
@@ -16,7 +16,7 @@
     "__init__.py": "03328ec28db34e363504a689ca19f9c342d7e4e435b25fd61d5d66673e303c08",
     "__main__.py": "79ee6f134c5c5193377cf9b189cbdcc3e2095e49ba9cec310114441c15a917c4",
     "architecture.py": "9c6d25e086df0035b39d7bf9151c634ed15b99fa43bf32183260a2b86ec24a4f",
-    "architecture_render.py": "6f2a3968ce42c7f4ab14546939fe980efb59966c976a86f56d591a164489a247",
+    "architecture_render.py": "9120815555ecd11bd5d74968e8ac9b448d4860eb18a2f289e2deaddbc2091330",
     "cli.py": "5bcea39a65933d5d285658ac0a410fea9f13b45f537476d09de6f0b9da40f0c8",
     "codegraph.py": "02f63a15cd0594482644f51146b374c0bc501c4b96f9967b3cb598080df7ab7f",
     "datasets.py": "7777c2e00901ae5152393b6d8b0fd866b665ea4a0bad2ae277560d9e95ca9bab",
@@ -31,11 +31,13 @@
     "server.py": "42a7771cdd960389ac42624669d2a1665860d33419b8f84a67fb6f6a850323f7",
     "verify.py": "c398d572cba29c5721c42cdc7cc39e5d96b14ac4118333d8b8654d99abba18d8",
     "web/app.js": "a50fa0e07e36106348df106b53c613cfd9089c17334be9ce61df8986b81d19fc",
-    "web/architecture.css": "6abaebc13b3dcdad4bb233307a903dbacc4befba09f82acd6c153ee8005e6b3a",
-    "web/architecture.html": "5c34117a0f1c0246d68587396a77e92bca2bc6ad0f4e368a8fda778e2296615c",
-    "web/architecture.js": "b4f74c867c86454e434dc2afaefa6d3bca222aabcbd82670013125e77f064951",
+    "web/architecture.css": "256f612337505e54c1dcfe53c38e663d4c38e673f2906d197b36768cd2dd3c9a",
+    "web/architecture.html": "42812331474832a1528e2017d3939d7ff86173f7d4395d1b3e2eb1f1ab63b825",
+    "web/architecture.js": "cfea635608c9a09b30bef831ed3b922f4feb9bbb84c4767ae3ec822debecb15e",
+    "web/graph-layout.js": "32904801635c4b43b59af48e2e1e8577d0a0801b37de871daee0fecc167f48fb",
     "web/index.html": "da78aec7c1bd6118fba79338516d1a3c56e5b3d1e28b5386596fa448eb7efeb6",
-    "web/style.css": "fccbce0103460b5616bb13c5fb28bcccc8f1f1aac8e5ca716e925f097257ec99"
+    "web/style.css": "fccbce0103460b5616bb13c5fb28bcccc8f1f1aac8e5ca716e925f097257ec99",
+    "web/vendor/dagre-3.1.1.min.js": "3152d214941a5df3a3d4c079dfa338c3cd7a6c0d4c1b4c3a2fdb6bba6f6facf9"
   },
   "environment": {
     "python": "3.13.12",
@@ -91,7 +93,7 @@
           }
         ],
         "witness": null,
-        "duration_ms": 1.917
+        "duration_ms": 0.881
       },
       "execution": {
         "status": "FAIL",
@@ -907,7 +909,7 @@
     "bound": 1,
     "excluded": []
   },
-  "duration_ms": 5.388,
+  "duration_ms": 2.632,
   "artifacts": {
     "float-cancellation/reference.py": "0c8b7c816b5a349f85cdf382bbfd2ce968221cc27c535442144192cedb7460f4",
     "float-cancellation/lowered.py": "dc2e22dd226b6375af7327e18e8061ec53eb4e4b195f646db05c9064eccc02af",
@@ -927,7 +929,7 @@
   },
   "integrity": {
     "algorithm": "sha256",
-    "payload": "af7a8254f36d4319edbff247d9704cfb409fce3d18644e84a6999abebc023537",
+    "payload": "0766b8c1e73b6596e67ae7448aefbe2121ec35c6f3c0db1e3fecb7ab0a604b75",
     "scope": "Integrity and freshness, not authenticity; an attacker can recompute this digest"
   }
 }

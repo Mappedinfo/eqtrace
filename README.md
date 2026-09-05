@@ -7,7 +7,7 @@
 
 EqTrace connects LaTeX equations and pseudocode to executable code, then places those local contracts inside a project graph of datasets, multi-file blocks, virtual interfaces, and recorded runs. It helps review whether a change still implements the described method.
 
-![Engineering workbench: preprocessing, frozen attention, head training, adaptation, and evaluation](docs/images/engineering.png)
+![Source dependency overview: 36 files across two codebases](docs/images/engineering.png)
 
 ## Try the complete example
 
@@ -20,6 +20,8 @@ make demo              # actual checks and pipeline execution; export both workb
 ```
 
 Open `artifacts/engineering/index.html` for the **36-file / 2-codebase** engineering example. Open `artifacts/equations/index.html` for formula/code comparison. These HTML files are self-contained and work offline. Committed snapshots are in [docs/demo](docs/demo); regenerate them before claiming freshness on another environment.
+
+The source graph starts with a package overview. Select a package and **Open files** to see its files and direct dependencies; **Focus direct connections** isolates a local neighborhood. Both engineering graphs use dependency layers and support direction changes, zoom, drag-to-pan, and SVG export.
 
 For live formula editing, run `make serve`, then open [the local workbench](http://127.0.0.1:8765). Changing the implementation exposes changed operations, counterexamples, and failing execution samples. The browser service only checks temporary scalar source pairs.
 
